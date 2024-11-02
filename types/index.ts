@@ -5,4 +5,67 @@ export interface CustomButtonProps {
   containerStyles?: string;
   handleClick?: MouseEventHandler<HTMLButtonElement>;
   btnType?: "button" | "submit";
+  textStyles?: string;
+  rightIcon?: string;
+  isDisabled?: boolean;
+}
+
+export interface SearchBikeTypesProps {
+  bikeType: string;
+  setBikeType: (bikeType: string) => void;
+}
+
+export interface MachineProps {
+  engineType: string;
+  fuelSupplySystem: string;
+  displacement: string;
+  boreAndStroke: string;
+  compressionRatio: string;
+  transmissionType: string;
+  maximumPower: string;
+  maximumTorque: string;
+  starterType: string;
+  clutchType: string;
+  lubricantType: string;
+}
+
+export interface ChassisProps {
+  frameType: string;
+  frontSuspensionType: string;
+  rearSuspensionType: string;
+  frontTireSize: string;
+  rearTireSize: string;
+  frontBrake: string;
+  rearBrake: string;
+  brakingSystem: string;
+}
+
+export interface DimensionProps {
+  lengthWidthHeight: string;
+  seatHeight: string;
+  wheelbase: string;
+  groundClearance: string;
+  curbWeight: string;
+}
+
+export interface Capacities {
+  fuelTankCapacity: string;
+  oilCapacity: string;
+  uBoxCapacity: string;
+}
+
+export interface Electrical {
+  batteryType: string;
+  ignitionSystem: string;
+  sparkPlugType: string;
+}
+
+export interface BikeProps {
+  model: string;
+  machine: MachineProps;
+  chassis: ChassisProps;
+  dimension: DimensionProps;
+  capacities: Capacities;
+  electrical: Electrical;
+  price: number;
 }
