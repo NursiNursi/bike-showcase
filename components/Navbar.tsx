@@ -10,8 +10,8 @@ const Navbar = () => {
           <Image
             src="/logo.svg"
             alt="Honda Logo"
-            width={118}
-            height={18}
+            width={178}
+            height={178}
             className="object-contain"
           />
         </Link>
