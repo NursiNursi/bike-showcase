@@ -70,6 +70,102 @@ export const fuels = [
   },
 ];
 
+export const allBikes = [
+  {
+    model: "Vario 125",
+    machine: {
+      engineType: "Automatic",
+    },
+    price: 23,
+  },
+  {
+    model: "Vario 160",
+    machine: {
+      engineType: "Automatic",
+    },
+    price: 27,
+  },
+  {
+    model: "BeAT",
+    machine: {
+      engineType: "Automatic",
+    },
+    price: 18,
+  },
+  {
+    model: "BeAT Street",
+    machine: {
+      engineType: "Automatic",
+    },
+    price: 19,
+  },
+  {
+    model: "Genio",
+    machine: {
+      engineType: "Automatic",
+    },
+    price: 19,
+  },
+  {
+    model: "Scoopy",
+    machine: {
+      engineType: "Automatic",
+    },
+    price: 22,
+  },
+  {
+    model: "Stylo 160",
+    machine: {
+      engineType: "Automatic",
+    },
+    price: 28,
+  },
+  {
+    model: "PCX 160",
+    machine: {
+      engineType: "Automatic",
+    },
+    price: 33,
+  },
+  {
+    model: "ADV 160",
+    machine: {
+      engineType: "Automatic",
+    },
+    price: 36,
+  },
+  {
+    model: "Forza",
+    machine: {
+      engineType: "Automatic",
+    },
+    price: 90,
+  },
+];
+
+export const bikeType = [
+  {
+    title: "Tipe",
+    value: "",
+  },
+  {
+    title: "Matic",
+    value: "Matic",
+  },
+  {
+    title: "Sport",
+    value: "Sport",
+  },
+  {
+    title: "Cub",
+    value: "Cub",
+  },
+  {
+    title: "Ev",
+    value: "Ev",
+  },
+];
+
 export const footerLinks = [
   {
     title: "About",
