@@ -11,27 +11,29 @@ import {
 
 import Image from "next/image";
 
-import { SearchBikeTypesProps } from "@/types";
+import { SearchBikeModelProps } from "@/types";
 import { Fragment, useState } from "react";
 
-import { manufacturers } from "@/constants";
+import { allBikes } from "@/constants";
 
-const SearchBikeType = ({ bikeType, setBikeType }: SearchBikeTypesProps) => {
+const SearchBikeModel = ({ bikeModel, setBikeModel }: SearchBikeModelProps) => {
   const [query, setQuery] = useState("");
 
-  const filteredManufacturers =
+  const filteredBikes =
     query === ""
-      ? manufacturers
-      : manufacturers.filter((item) =>
-          item
-            .toLowerCase()
-            .replace(/\s+/g, "")
-            .includes(query.toLowerCase().replace(/\s+/g, ""))
-        );
+      ? allBikes.map((bike) => bike.model)
+      : allBikes
+          .filter((bike) =>
+            bike.model
+              .toLowerCase()
+              .replace(/\s+/g, "")
+              .includes(query.toLowerCase().replace(/\s+/g, ""))
+          )
+          .map((bike) => bike.model);
 
   return (
     <div className="search-manufacturer">
-      <Combobox value={bikeType} onChange={setBikeType}>
+      <Combobox value={bikeModel} onChange={setBikeModel}>
         <div className="relative w-full">
           <ComboboxButton className="absolute top-[14px]">
             <Image
@@ -46,7 +48,7 @@ const SearchBikeType = ({ bikeType, setBikeType }: SearchBikeTypesProps) => {
           <ComboboxInput
             className="search-manufacturer__input"
             placeholder="Volkswagen"
-            displayValue={(bikeType: string) => bikeType}
+            displayValue={(bikeModel: string) => bikeModel}
             onChange={(e) => setQuery(e.target.value)}
           />
 
@@ -58,7 +60,7 @@ const SearchBikeType = ({ bikeType, setBikeType }: SearchBikeTypesProps) => {
             afterLeave={() => setQuery("")}
           >
             <ComboboxOptions>
-              {filteredManufacturers.map((item) => (
+              {filteredBikes.map((item) => (
                 <ComboboxOption
                   key={item}
                   className={({ active }) =>
@@ -79,4 +81,4 @@ const SearchBikeType = ({ bikeType, setBikeType }: SearchBikeTypesProps) => {
   );
 };
 
-export default SearchBikeType;
+export default SearchBikeModel;
