@@ -10,9 +10,9 @@ export interface CustomButtonProps {
   isDisabled?: boolean;
 }
 
-export interface SearchBikeTypesProps {
-  bikeType: string;
-  setBikeType: (bikeType: string) => void;
+export interface SearchBikeModelProps {
+  bikeModel: string;
+  setBikeModel: (bikeModel: string) => void;
 }
 
 export interface MachineProps {
@@ -58,6 +58,7 @@ export interface Electrical {
   batteryType: string;
   ignitionSystem: string;
   sparkPlugType: string;
+  chargerPower?: string;
 }
 
 export interface BikeProps {
@@ -65,7 +66,10 @@ export interface BikeProps {
   machine: MachineProps;
   chassis: ChassisProps;
   dimension: DimensionProps;
-  capacities: Capacities;
+  capacities?: Capacities;
   electrical: Electrical;
+  keyless: boolean;
   price: number;
+  image: string;
+  colorVariant: string[];
 }
