@@ -4,6 +4,8 @@ import { BikeProps } from "@/types";
 import Image from "next/image";
 import React, { useState } from "react";
 import CustomButton from "./CustomButton";
+import { renderBrakingSystemLabel } from "@/utils";
+import BikeDetails from "./BikeDetails";
 
 interface BikeCardProps {
   bike: BikeProps;
@@ -12,8 +14,17 @@ interface BikeCardProps {
 const BikeCard = ({ bike }: BikeCardProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const { model, machine, chassis, dimension, capacities, electrical, price } =
-    bike;
+  const {
+    model,
+    machine,
+    chassis,
+    dimension,
+    capacities,
+    electrical,
+    keyless,
+    price,
+    image,
+  } = bike;
 
   return (
     <div className="car-card group">
@@ -27,9 +38,9 @@ const BikeCard = ({ bike }: BikeCardProps) => {
         <span className="self-end text-[14px] font-medium">-an</span>
       </p>
 
-      <div className="relative w-full h-40 my-3 object-contain">
+      <div className="relative w-full h-60 object-contain">
         <Image
-          src="/hero1.png"
+          src={image}
           alt="bike model"
           fill
           priority
@@ -50,24 +61,32 @@ const BikeCard = ({ bike }: BikeCardProps) => {
           </div>
           <div className="flex flex-col justify-center items-center gap-2">
             <Image src="/key.png" width={24} height={24} alt="tire" />
-            <p className="text-[14px]">Keyless</p>
+            <p className="text-[14px]">{keyless ? "Keyless" : "Anak Kunci"}</p>
           </div>
           <div className="flex flex-col justify-center items-center gap-2">
             <Image src="/brake.png" width={24} height={24} alt="gas" />
-            <p className="text-[14px]">C/ABS</p>
+            <p className="text-[14px]">
+              {renderBrakingSystemLabel(chassis?.brakingSystem)}
+            </p>
           </div>
         </div>
 
         <div className="car-card__btn-container">
           <CustomButton
             title="Detail Lebih Lanjut"
-            containerStyles="w-full py-[16px] rounded-full bg-primary-blue"
+            containerStyles="w-full py-[16px] rounded-full bg-primary-red"
             textStyles="text-white text-[14px] leading-[17px] font-bold"
             rightIcon="/right-arrow.svg"
             handleClick={() => setIsOpen(true)}
           />
         </div>
       </div>
+
+      <BikeDetails
+        isOpen={isOpen}
+        closeModal={() => setIsOpen(false)}
+        bike={bike}
+      />
     </div>
   );
 };
