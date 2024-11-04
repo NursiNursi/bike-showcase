@@ -154,7 +154,7 @@ const BikeDetails = ({ isOpen, closeModal, bike }: BikeDetailsProps) => {
                     />
                   </button>
 
-                  <div className="flex-1 flex flex-col gap-3 mt-[-35px]">
+                  <div className="flex-1 flex flex-col gap-3">
                     <Slider {...settings}>
                       {bike.colorVariant?.map((variant) => (
                         <div
