@@ -9,7 +9,7 @@ import {
 } from "@headlessui/react";
 import Image from "next/image";
 
-import { Fragment, useState } from "react";
+import { Fragment, SetStateAction, useState } from "react";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -92,7 +92,8 @@ const BikeDetails = ({ isOpen, closeModal, bike }: BikeDetailsProps) => {
     slidesToScroll: 1,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
-    beforeChange: (current, next) => setCurrentSlide(next),
+    beforeChange: (current: any, next: SetStateAction<number>) =>
+      setCurrentSlide(next),
     customPaging: (i: number) => (
       <div
         style={{
@@ -181,19 +182,21 @@ const BikeDetails = ({ isOpen, closeModal, bike }: BikeDetailsProps) => {
 
                     <div className="mt-3 flex-wrap gap-4">
                       <div>
-                        {Object.entries(bike.machine).map(([key, value]) => (
-                          <div
-                            className="flex justify-between gap-5 w-full text-right"
-                            key={key}
-                          >
-                            <h4 className="text-grey capitalize">
-                              {formatKey(key)}
-                            </h4>
-                            <p className="text-black-100 font-semibold">
-                              {value}
-                            </p>
-                          </div>
-                        ))}
+                        {Object.entries(bike.machine ?? {}).map(
+                          ([key, value]) => (
+                            <div
+                              className="flex justify-between gap-5 w-full text-right"
+                              key={key}
+                            >
+                              <h4 className="text-grey capitalize">
+                                {formatKey(key)}
+                              </h4>
+                              <p className="text-black-100 font-semibold">
+                                {value}
+                              </p>
+                            </div>
+                          )
+                        )}
                       </div>
                     </div>
                   </div>
