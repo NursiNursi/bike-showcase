@@ -34,7 +34,7 @@ const Footer = () => {
           {/* Social Media Buttons */}
           <div className="flex gap-4">
             <a
-              href="https://www.facebook.com"
+              href="https://www.facebook.com/MiaHondaLembang"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
@@ -42,7 +42,7 @@ const Footer = () => {
               <FaFacebook size={28} />
             </a>
             <a
-              href="https://www.instagram.com"
+              href="https://www.instagram.com/miahondalembang/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
@@ -50,7 +50,7 @@ const Footer = () => {
               <FaInstagram size={28} />
             </a>
             <a
-              href="https://www.twitter.com"
+              href="https://x.com/AstraHondaCare"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Twitter"
@@ -58,10 +58,10 @@ const Footer = () => {
               <FaTwitter size={28} />
             </a>
             <a
-              href="https://www.linkedin.com"
+              href="https://www.youtube.com/@welovehondaindonesia"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="LinkedIn"
+              aria-label="youtube"
             >
               <FaYoutube size={28} />
             </a>
