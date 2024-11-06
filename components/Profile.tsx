@@ -8,7 +8,7 @@ const Profile = () => {
 
   return (
     <div className="flex flex-col lg:flex-row justify-center items-center">
-      <div className="w-[80%] sm:w-[60%] lg:w-[40%] mt-24 lg:mt-48 h-[330px] relative lg:border-2 lg:border-primary-red rounded-xl flex-shrink-0">
+      <div className="w-[80%] sm:w-[60%] lg:w-[40%] mt-12 lg:mt-48 h-[330px] relative lg:border-2 lg:border-primary-red rounded-xl flex-shrink-0">
         <Image
           src="/mia.png"
           width={500}
@@ -17,7 +17,7 @@ const Profile = () => {
           className="absolute  sm:-top-20 lg:-top-36 left-1/2 transform -translate-x-1/2 lg:left-0 lg:translate-x-0 pt-6"
         />
       </div>
-      <div className="w-[90%] sm:w-[80%] lg:w-[50%] pt-24 lg:mt-12 flex flex-col justify-between text-center lg:text-left pl-0 lg:pl-8">
+      <div className="w-[90%] sm:w-[80%] lg:w-[50%] pt-12 lg:mt-12 flex flex-col justify-between text-center lg:text-left pl-0 lg:pl-8">
         <h1 className="hero__title text-sm sm:text-3xl lg:text-4xl font-semibold">
           Salam satu hati, saya{" "}
           <span className="text-primary-red">Mia Oktari</span>, Sales Counter
