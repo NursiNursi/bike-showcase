@@ -4,7 +4,9 @@ import Image from "next/image";
 import CustomButton from "./CustomButton";
 
 const Profile = () => {
-  const handleScroll = () => {};
+  const handleClick = () => {
+    window.open("https://wa.me/628112340753", "_blank");
+  };
 
   return (
     <div className="flex flex-col lg:flex-row justify-center items-center">
@@ -32,6 +34,7 @@ const Profile = () => {
           leftIcon="/right-arrow.svg"
           containerStyles="w-full sm:w-[60%] lg:w-[50%] py-[20px] h-12 sm:h-14 rounded-full bg-primary-red mt-6 lg:mt-4 mx-auto lg:mx-0"
           textStyles="text-white text-lg sm:text-xl leading-[17px] font-bold"
+          handleClick={handleClick}
         />
       </div>
     </div>
