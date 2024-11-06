@@ -1,6 +1,7 @@
 "use client";
 
 import { BikeCard, CustomFilter, Hero, SearchBar } from "@/components";
+import Profile from "@/components/Profile";
 import { allBikes, sportBike, cubBike, evBike } from "@/constants";
 import { useState } from "react";
 
@@ -57,18 +58,10 @@ export default function Home() {
             {getBikeList().map((bike, i) => (
               <BikeCard key={i} bike={bike} />
             ))}
-            {/* {allBikes?.map((bike, i) => (
-              <BikeCard key={i} bike={bike} />
-            ))} */}
           </div>
         </section>
 
-        {/* <div className="home__filters">
-              <SearchBar />
-              <div className="home__filter-container">
-                <CustomFilter title="type" />
-              </div>
-            </div> */}
+        <Profile />
       </div>
     </main>
   );
