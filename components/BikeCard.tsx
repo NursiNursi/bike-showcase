@@ -26,6 +26,8 @@ const BikeCard = ({ bike }: BikeCardProps) => {
     image,
   } = bike;
 
+  const bikeImage = image || "";
+
   return (
     <div className="car-card group">
       <div className="car-card__content">
@@ -40,7 +42,7 @@ const BikeCard = ({ bike }: BikeCardProps) => {
 
       <div className="relative w-full h-60 object-contain">
         <Image
-          src={image}
+          src={bikeImage}
           alt="bike model"
           fill
           priority
