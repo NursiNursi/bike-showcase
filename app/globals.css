@@ -43,7 +43,7 @@
 }
 
 .hero__title {
-  @apply 2xl:text-[72px] 2xl:pt-8 sm:text-[64px] text-[50px] font-extrabold leading-[72px];
+  @apply 2xl:text-[72px] 2xl:pt-8 sm:text-[64px] text-[50px] font-extrabold leading-[56px];
 }
 
 .hero__subtitle {
@@ -70,7 +70,7 @@
 /* START: Home styles */
 
 .home__text-container {
-  @apply flex flex-col items-start justify-start gap-y-2.5 text-black-100;
+  @apply flex flex-col gap-y-2.5 text-black-100;
 }
 
 .home__filters {

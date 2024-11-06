@@ -8,8 +8,8 @@ const Hero = () => {
 
   return (
     <div className="hero">
-      <div className="flex-1 pt-36 padding-x">
-        <h1 className="hero__title">
+      <div className="flex-1 pt-24 text-center lg:text-left padding-x">
+        <h1 className="hero__title lg:leading-[78px]">
           Nikmati Kehandalan dan Gaya Bersama Honda
           {/* Find, book, rent a car -- quick and super easy! */}
         </h1>
@@ -18,11 +18,13 @@ const Hero = () => {
           Desain Elegan, Teknologi Terdepan, Siap Temani Setiap Petualangan Anda
         </p>
 
-        <CustomButton
-          title="Jelajahi Motor"
-          containerStyles="bg-primary-red text-white rounded-full mt-10"
-          handleClick={handleScroll}
-        />
+        <div className="hidden lg:block">
+          <CustomButton
+            title="Jelajahi Motor"
+            containerStyles="bg-primary-red text-white rounded-full mt-10"
+            handleClick={handleScroll}
+          />
+        </div>
       </div>
       <div className="hero__image-container">
         <div className="hero__image">

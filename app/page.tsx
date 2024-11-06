@@ -30,9 +30,9 @@ export default function Home() {
       <Hero />
 
       <div className="mt-12 padding-x padding-y max-width" id="discover">
-        <div className="home__text-container">
+        <div className="home__text-container text-center lg:text-left">
           <h1 className="text-4xl font-extrabold">Katalog Motor</h1>
-          <p className="text-xl text-gray-500">
+          <p className="text-xl text-gray-500 mb-2">
             Temukan motor yang sesuai dengan kebutuhanmu.
           </p>
         </div>
