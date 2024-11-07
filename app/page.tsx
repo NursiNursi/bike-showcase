@@ -12,13 +12,13 @@ export default function Home() {
 
   const getBikeList = () => {
     switch (activeTab) {
-      case 0: // Matic
+      case 0:
         return allBikes;
-      case 2: // Cub
+      case 2:
         return cubBike;
-      case 1: // Sport
+      case 1:
         return sportBike;
-      case 3: // EV
+      case 3:
         return evBike;
       default:
         return [];

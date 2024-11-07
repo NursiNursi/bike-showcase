@@ -749,7 +749,7 @@ export const sportBike = [
       sparkPlugType: "NGK CPR9EA-9 / Denso U27EPR9",
     },
     keyless: true,
-    price: 23,
+    price: 22,
     image: "/bikes/verza.png",
     colorVariant: [
       "/bikes/verza/black.png",
@@ -792,7 +792,7 @@ export const sportBike = [
       sparkPlugType: "NGK CPR9EA-9 / Denso U27EPR9",
     },
     keyless: true,
-    price: 23,
+    price: 31,
     image: "/bikes/cb150r.png",
     colorVariant: [
       "/bikes/cb150r/black.png",
@@ -837,7 +837,7 @@ export const sportBike = [
       sparkPlugType: "NGK CPR9EA-9 / Denso U27EPR9",
     },
     keyless: true,
-    price: 23,
+    price: 34,
     image: "/bikes/cb150x.png",
     colorVariant: [
       "/bikes/cb150x/mblack.png",
@@ -884,7 +884,7 @@ export const cubBike = [
       sparkPlugType: "NGK CPR9EA-9 / Denso U27EPR9",
     },
     keyless: true,
-    price: 23,
+    price: 16,
     image: "/bikes/revo.png",
     colorVariant: [
       "/bikes/revo/ared.png",
@@ -928,7 +928,7 @@ export const cubBike = [
       sparkPlugType: "NGK CPR9EA-9 / Denso U27EPR9",
     },
     keyless: true,
-    price: 23,
+    price: 19,
     image: "/bikes/suprax.png",
     colorVariant: [
       "/bikes/suprax/black.png",
@@ -971,7 +971,7 @@ export const cubBike = [
       sparkPlugType: "NGK CPR9EA-9 / Denso U27EPR9",
     },
     keyless: true,
-    price: 23,
+    price: 25,
     image: "/bikes/supragtr.png",
     colorVariant: [
       "/bikes/supragtr/black.png",
