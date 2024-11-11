@@ -2,6 +2,7 @@
 
 import { BikeProps } from "@/types";
 import {
+  Button,
   Dialog,
   DialogPanel,
   Transition,
@@ -15,6 +16,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import Slider from "react-slick";
+import CustomButton from "./CustomButton";
+import { FaPhoneSquareAlt } from "react-icons/fa";
 
 interface BikeDetailsProps {
   isOpen: boolean;
@@ -82,6 +85,13 @@ function PrevArrow(props: any) {
 const BikeDetails = ({ isOpen, closeModal, bike }: BikeDetailsProps) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   console.log(bike);
+
+  const handleClick = () => {
+    window.open(
+      `https://wa.me/628112340753?text=Info%20promo%20Honda%20${bike.model}%20dong%20kak!`,
+      "_blank"
+    );
+  };
 
   const settings = {
     dots: true,
@@ -200,6 +210,13 @@ const BikeDetails = ({ isOpen, closeModal, bike }: BikeDetailsProps) => {
                       </div>
                     </div>
                   </div>
+                  <CustomButton
+                    title="Dapatkan Promo Menarik"
+                    containerStyles="w-full py-[16px] rounded-full bg-primary-red"
+                    textStyles="text-white text-[14px] leading-[17px] font-bold"
+                    rightIcon="/right-arrow.svg"
+                    handleClick={handleClick}
+                  />
                 </DialogPanel>
               </TransitionChild>
             </div>
