@@ -45,8 +45,8 @@ const BikeCard = ({ bike }: BikeCardProps) => {
           src={bikeImage}
           alt="bike model"
           fill
-          priority
           className="object-contain"
+          loading="lazy"
         />
       </div>
 

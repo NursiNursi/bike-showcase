@@ -179,6 +179,7 @@ const BikeDetails = ({ isOpen, closeModal, bike }: BikeDetailsProps) => {
                             width={100}
                             height={100}
                             style={{ maxWidth: "100%", height: "auto" }}
+                            loading="lazy"
                           />
                         </div>
                       ))}
