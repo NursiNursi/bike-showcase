@@ -62,11 +62,11 @@ export const allBikes = [
     price: 23,
     image: "/bikes/vario125.png",
     colorVariant: [
-      "/bikes/v125/v125-mblack.png",
-      "/bikes/v125/v125-mblue.png",
-      "/bikes/v125/v125-mred.png",
-      "/bikes/v125/v125-rblack.png",
-      "/bikes/v125/v125-smblack.png",
+      "/bikes/v125/v125-matteblack.png",
+      "/bikes/v125/v125-matteblue.png",
+      "/bikes/v125/v125-mattered.png",
+      "/bikes/v125/v125-black.png",
+      "/bikes/v125/v125-redblack.png",
     ],
   },
   {
