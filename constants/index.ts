@@ -178,14 +178,14 @@ export const allBikes = [
     price: 18,
     image: "/bikes/beat.png",
     colorVariant: [
-      "/bikes/beat/beat-black.png",
-      "/bikes/beat/beat-mblack.png",
-      "/bikes/beat/beat-mblue.png",
-      "/bikes/beat/beat-mgreen.png",
-      "/bikes/beat/beat-msilver.png",
-      "/bikes/beat/beat-rblack.png",
-      "/bikes/beat/beat-rckblack.png",
-      "/bikes/beat/beat-wblack.png",
+      "/bikes/beat/black.png",
+      "/bikes/beat/matteblack.png",
+      "/bikes/beat/matteblue.png",
+      "/bikes/beat/mattegreen.png",
+      "/bikes/beat/mattesilver.png",
+      "/bikes/beat/redblack.png",
+      "/bikes/beat/rockblack.png",
+      "/bikes/beat/whitblack.png",
     ],
   },
   {
@@ -236,8 +236,8 @@ export const allBikes = [
     price: 19,
     image: "/bikes/beat-street.png",
     colorVariant: [
-      "/bikes/beat-street/beat-street-black.png",
-      "/bikes/beat-street/beat-street-brown.png",
+      "/bikes/beat-street/brown.png",
+      "/bikes/beat-street/black.png",
     ],
   },
   {
