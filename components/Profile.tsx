@@ -13,8 +13,8 @@ const Profile = () => {
       <div className="w-[80%] sm:w-[60%] lg:w-[40%] mt-12 lg:mt-48 h-[330px] relative lg:border-2 lg:border-primary-red rounded-xl flex-shrink-0">
         <Image
           src="/mia.png"
-          width={500}
-          height={500}
+          width={472}
+          height={472}
           alt="mia"
           className="absolute sm:-top-20 lg:-top-36 left-1/2 transform -translate-x-1/2 lg:left-0 lg:translate-x-0 pt-6"
         />
