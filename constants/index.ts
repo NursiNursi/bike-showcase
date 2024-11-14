@@ -1,20 +1,3 @@
-import { features } from "process";
-
-export const fuels = [
-  {
-    title: "Fuel",
-    value: "",
-  },
-  {
-    title: "Gas",
-    value: "Gas",
-  },
-  {
-    title: "Electricity",
-    value: "Electricity",
-  },
-];
-
 export const allBikes = [
   {
     model: "Vario 125",
@@ -225,7 +208,7 @@ export const allBikes = [
     model: "Forza",
     spec: {
       engineType: "eSP+, 4-katup, 4-langkah, SOHC",
-      displacement: 249,
+      displacement: "249 cc",
       maxPower: "17 kW / 7,750 rpm",
       maxTorque: "24 Nm / 6,250 rpm",
       brakingSystem: "Anti-Lock Braking System (ABS)",
