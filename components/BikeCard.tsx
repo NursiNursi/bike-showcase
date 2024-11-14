@@ -63,7 +63,9 @@ const BikeCard = ({ bike }: BikeCardProps) => {
           </div>
           <div className="flex flex-col justify-center items-center gap-2">
             <Image src="/key.png" width={24} height={24} alt="tire" />
-            <p className="text-[14px]">{keyless ? "Keyless" : "Anak Kunci"}</p>
+            <p className="text-[14px]">
+              {keyless ? "Smart Key" : "Anak Kunci"}
+            </p>
           </div>
           <div className="flex flex-col justify-center items-center gap-2">
             <Image src="/brake.png" width={24} height={24} alt="gas" />
