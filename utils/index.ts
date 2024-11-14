@@ -1,5 +1,5 @@
 export function renderBrakingSystemLabel(brakingSystem: string | undefined) {
-  if (!brakingSystem) return null;
+  if (!brakingSystem) return "Disc";
 
   const hasCBS =
     brakingSystem.includes("CBS") ||
