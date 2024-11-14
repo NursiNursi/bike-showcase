@@ -19,9 +19,12 @@ export interface SearchBikeModelProps {
 export interface SpecProps {
   engineType?: string;
   displacement?: string;
-  maxPower?: string;
-  maxTorque?: string;
+  maxPower: string;
+  maxTorque: string;
+  ratedPower?: string;
   brakingSystem?: string;
+  frontBrake?: string;
+  rearBrake?: string;
 }
 
 export interface BikeProps {
