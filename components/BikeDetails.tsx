@@ -193,21 +193,19 @@ const BikeDetails = ({ isOpen, closeModal, bike }: BikeDetailsProps) => {
 
                     <div className="mt-3 flex-wrap gap-4">
                       <div>
-                        {Object.entries(bike.machine ?? {}).map(
-                          ([key, value]) => (
-                            <div
-                              className="flex justify-between gap-5 w-full text-right"
-                              key={key}
-                            >
-                              <h4 className="text-grey capitalize">
-                                {formatKey(key)}
-                              </h4>
-                              <p className="text-black-100 font-semibold">
-                                {value}
-                              </p>
-                            </div>
-                          )
-                        )}
+                        {Object.entries(bike.spec ?? {}).map(([key, value]) => (
+                          <div
+                            className="flex justify-between gap-5 w-full text-right"
+                            key={key}
+                          >
+                            <h4 className="text-grey capitalize">
+                              {formatKey(key)}
+                            </h4>
+                            <p className="text-black-100 font-semibold">
+                              {value}
+                            </p>
+                          </div>
+                        ))}
                       </div>
                     </div>
                   </div>

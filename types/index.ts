@@ -16,59 +16,17 @@ export interface SearchBikeModelProps {
   setBikeModel: (bikeModel: string) => void;
 }
 
-export interface MachineProps {
+export interface SpecProps {
   engineType?: string;
-  fuelSupplySystem?: string;
-  // displacement?: string;
-  boreAndStroke?: string;
-  compressionRatio?: string;
-  transmissionType?: string;
-  maximumPower?: string;
-  maximumTorque?: string;
-  starterType?: string;
-  clutchType?: string;
-  lubricantType?: string;
-}
-
-export interface ChassisProps {
-  frameType?: string;
-  frontSuspensionType?: string;
-  rearSuspensionType?: string;
-  frontTireSize?: string;
-  rearTireSize?: string;
-  frontBrake?: string;
-  rearBrake?: string;
+  displacement?: string;
+  maxPower?: string;
+  maxTorque?: string;
   brakingSystem?: string;
-}
-
-export interface DimensionProps {
-  lengthWidthHeight?: string;
-  seatHeight?: string;
-  wheelbase?: string;
-  groundClearance?: string;
-  curbWeight?: string;
-}
-
-export interface Capacities {
-  fuelTankCapacity?: string;
-  oilCapacity?: string;
-  uBoxCapacity?: string;
-}
-
-export interface Electrical {
-  batteryType: string;
-  ignitionSystem: string;
-  sparkPlugType: string;
-  chargerPower?: string;
 }
 
 export interface BikeProps {
   model?: string;
-  machine?: MachineProps;
-  chassis?: ChassisProps;
-  dimension?: DimensionProps;
-  capacities?: Capacities;
-  electrical?: Electrical;
+  spec?: SpecProps;
   keyless?: boolean;
   price?: number;
   image?: string;
