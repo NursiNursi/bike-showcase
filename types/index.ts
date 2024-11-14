@@ -30,6 +30,7 @@ export interface SpecProps {
 export interface BikeProps {
   model?: string;
   spec?: SpecProps;
+  transmissionType?: string;
   keyless?: boolean;
   price?: number;
   image?: string;
