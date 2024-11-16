@@ -36,7 +36,7 @@ const BikeCard = ({ bike }: BikeCardProps) => {
           alt="bike model"
           fill
           className="object-contain"
-          loading="lazy"
+          priority
         />
       </div>
 
