@@ -4,7 +4,15 @@ import Image from "next/image";
 import CustomButton from "./CustomButton";
 
 const Hero = () => {
-  const handleScroll = () => {};
+  const handleScroll = () => {
+    const catalogueSection = document.getElementById('discover');
+    if (catalogueSection) {
+      catalogueSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
 
   return (
     <div className="hero">
