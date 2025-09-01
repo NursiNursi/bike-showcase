@@ -18,7 +18,11 @@ const SearchButton = ({ otherClasses }: { otherClasses: string }) => (
   </button>
 );
 
-const SearchBar = () => {
+interface SearchBarProps {
+  onSearch?: (query: string) => void;
+}
+
+const SearchBar = ({ onSearch }: SearchBarProps) => {
   const [bikeModel, setBikeModel] = useState("");
   const router = useRouter();
 
@@ -30,6 +34,16 @@ const SearchBar = () => {
     }
 
     updateSearchParams(bikeModel.toLowerCase());
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setBikeModel(value);
+    
+    // Call onSearch prop if provided for real-time filtering
+    if (onSearch) {
+      onSearch(value);
+    }
   };
 
   const updateSearchParams = (bikeModel: string) => {
@@ -56,6 +70,8 @@ const SearchBar = () => {
           id="large-input"
           className="block w-full p-4 pr-12 text-gray-900 border border-gray-300 rounded-lg bg-primary-blue-100 text-base focus:ring-blue-500 focus:border-blue-500"
           placeholder="Cari motor..."
+          value={bikeModel}
+          onChange={handleInputChange}
         />
         <button
           type="button"

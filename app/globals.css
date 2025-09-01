@@ -115,8 +115,8 @@
   @apply grid 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full gap-8 pt-14;
 }
 
-.home__error-container {
-  @apply mt-16 flex justify-center items-center flex-col gap-2;
+.empty-state {
+  @apply 2xl:col-span-4 xl:col-span-3 md:col-span-2 col-span-1;
 }
 /* END: Home styles */
 

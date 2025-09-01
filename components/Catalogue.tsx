@@ -3,11 +3,14 @@
 import { BikeCard, SearchBar } from "@/components";
 import { allBikes, sportBike, cubBike, evBike } from "@/constants";
 import { useState, useEffect } from "react";
+import { BikeProps } from "@/types";
 
 const Catalogue = () => {
   const [activeTab, setActiveTab] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [loadedImages, setLoadedImages] = useState(new Set());
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filteredBikes, setFilteredBikes] = useState<BikeProps[]>(allBikes);
 
   const tabs = ["Matic", "Sport", "Cub", "EV"];
 
@@ -26,7 +29,32 @@ const Catalogue = () => {
     }
   };
 
+  const getAllBikes = () => {
+    return [...allBikes, ...sportBike, ...cubBike, ...evBike];
+  };
+
+  const filterBikes = (bikes: BikeProps[], query: string) => {
+    if (!query.trim()) return bikes;
+
+    return bikes.filter((bike) =>
+      bike.model?.toLowerCase().includes(query.toLowerCase())
+    );
+  };
+
   const currentBikes = getBikeList();
+
+  useEffect(() => {
+    if (searchQuery.trim()) {
+      // When searching, filter across all bikes
+      const allBikesData = getAllBikes();
+      const filtered = filterBikes(allBikesData, searchQuery);
+      setFilteredBikes(filtered);
+    } else {
+      // When not searching, show bikes by active tab
+      const currentBikes = getBikeList();
+      setFilteredBikes(currentBikes);
+    }
+  }, [activeTab, searchQuery]);
 
   useEffect(() => {
     setIsLoading(true);
@@ -62,25 +90,27 @@ const Catalogue = () => {
         </div>
 
         <div className="w-full lg:w-[36%]">
-          <SearchBar />
+          <SearchBar onSearch={setSearchQuery} />
         </div>
       </div>
 
-      <div className="flex justify-center items-center border-gray-300">
-        {tabs.map((tab, index) => (
-          <div
-            key={index}
-            className={`px-4 py-4 text-2xl -mb-6 font-semibold cursor-pointer text-gray-600 transition-all duration-300 ease-in-out hover:text-black ${
-              activeTab === index
-                ? "font-extrabold text-black border-b-2 border-primary-red transform scale-105"
-                : "hover:scale-102"
-            }`}
-            onClick={() => setActiveTab(index)}
-          >
-            {tab}
-          </div>
-        ))}
-      </div>
+      {!searchQuery.trim() && (
+        <div className="flex justify-center items-center border-gray-300">
+          {tabs.map((tab, index) => (
+            <div
+              key={index}
+              className={`px-4 py-4 text-2xl -mb-6 font-semibold cursor-pointer text-gray-600 transition-all duration-300 ease-in-out hover:text-black ${
+                activeTab === index
+                  ? "font-extrabold text-black border-b-2 border-primary-red transform scale-105"
+                  : "hover:scale-102"
+              }`}
+              onClick={() => setActiveTab(index)}
+            >
+              {tab}
+            </div>
+          ))}
+        </div>
+      )}
 
       <section className="transition-all duration-500 ease-in-out">
         {isLoading ? (
@@ -98,9 +128,21 @@ const Catalogue = () => {
           </div>
         ) : (
           <div className="home__cars-wrapper animate-fadeIn">
-            {currentBikes.map((bike, i) => (
-              <BikeCard key={`${activeTab}-${i}`} bike={bike} />
-            ))}
+            {filteredBikes.length > 0 ? (
+              filteredBikes.map((bike, i) => (
+                <BikeCard key={`${activeTab}-${i}`} bike={bike} />
+              ))
+            ) : (
+              <div className="empty-state w-full text-center py-16">
+                <p className="text-gray-500 text-lg">
+                  No bikes found matching your search.
+                </p>
+                <p className="text-gray-400 text-sm mt-2">
+                  Try adjusting your search terms or browse different
+                  categories.
+                </p>
+              </div>
+            )}
           </div>
         )}
       </section>
