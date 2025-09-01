@@ -65,7 +65,7 @@ export const allBikes = [
       "/bikes/beat/mattesilver.png",
       "/bikes/beat/redblack.png",
       "/bikes/beat/rockblack.png",
-      "/bikes/beat/whitblack.png",
+      "/bikes/beat/whiteblack.png",
     ],
   },
   {

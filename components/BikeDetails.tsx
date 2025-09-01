@@ -10,14 +10,13 @@ import {
 } from "@headlessui/react";
 import Image from "next/image";
 
-import { Fragment, SetStateAction, useState } from "react";
+import { Fragment, SetStateAction, useState, useEffect } from "react";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import Slider from "react-slick";
 import CustomButton from "./CustomButton";
-import { FaPhoneSquareAlt } from "react-icons/fa";
 
 interface BikeDetailsProps {
   isOpen: boolean;
@@ -84,7 +83,32 @@ function PrevArrow(props: any) {
 
 const BikeDetails = ({ isOpen, closeModal, bike }: BikeDetailsProps) => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [imagesLoaded, setImagesLoaded] = useState<boolean[]>([]);
+  const [allImagesLoaded, setAllImagesLoaded] = useState(false);
   console.log(bike);
+
+  // Initialize loading state when bike changes
+  useEffect(() => {
+    if (bike.colorVariant) {
+      setImagesLoaded(new Array(bike.colorVariant.length).fill(false));
+      setAllImagesLoaded(false);
+    }
+  }, [bike.colorVariant]);
+
+  // Check if all images are loaded
+  useEffect(() => {
+    if (imagesLoaded.length > 0 && imagesLoaded.every(loaded => loaded)) {
+      setAllImagesLoaded(true);
+    }
+  }, [imagesLoaded]);
+
+  const handleImageLoad = (index: number) => {
+    setImagesLoaded(prev => {
+      const newState = [...prev];
+      newState[index] = true;
+      return newState;
+    });
+  };
 
   const handleClick = () => {
     window.open(
@@ -166,24 +190,35 @@ const BikeDetails = ({ isOpen, closeModal, bike }: BikeDetailsProps) => {
                   </button>
 
                   <div className="flex-1 flex flex-col gap-3">
-                    <Slider {...settings}>
-                      {bike.colorVariant?.map((variant) => (
-                        <div
-                          key={variant}
-                          className="flex justify-center items-center"
-                        >
-                          <Image
-                            src={variant}
-                            alt="Color variant"
-                            layout="responsive"
-                            width={100}
-                            height={100}
-                            style={{ maxWidth: "100%", height: "auto" }}
-                            loading="lazy"
-                          />
+                    {!allImagesLoaded && (
+                      <div className="relative w-full h-64 bg-gray-200 rounded-lg animate-pulse flex items-center justify-center">
+                        <div className="flex flex-col items-center gap-2">
+                          <div className="w-8 h-8 border-4 border-gray-300 border-t-blue-500 rounded-full animate-spin"></div>
+                          <p className="text-gray-500 text-sm">Loading images...</p>
                         </div>
-                      ))}
-                    </Slider>
+                      </div>
+                    )}
+                    <div className={`transition-opacity duration-500 ${allImagesLoaded ? 'opacity-100' : 'opacity-0 absolute'}`}>
+                      <Slider {...settings}>
+                        {bike.colorVariant?.map((variant, index) => (
+                          <div
+                            key={variant}
+                            className="flex justify-center items-center"
+                          >
+                            <Image
+                              src={variant}
+                              alt="Color variant"
+                              layout="responsive"
+                              width={100}
+                              height={100}
+                              style={{ maxWidth: "100%", height: "auto" }}
+                              loading="lazy"
+                              onLoad={() => handleImageLoad(index)}
+                            />
+                          </div>
+                        ))}
+                      </Slider>
+                    </div>
                   </div>
 
                   <div className="flex-1 flex flex-col gap-1 overflow-x-auto hide-scrollbar">

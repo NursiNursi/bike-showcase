@@ -33,7 +33,7 @@
 }
 
 .custom-btn {
-  @apply flex flex-row relative justify-center items-center py-3 px-6 outline-none;
+  @apply flex flex-row relative justify-center items-center py-3 px-6 outline-none transition-all duration-200 ease-in-out hover:scale-105 hover:shadow-lg active:scale-95;
 }
 /* Animation styles */
 @keyframes fadeIn {
@@ -47,8 +47,23 @@
   }
 }
 
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .animate-fadeIn {
   animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.3s ease-out;
 }
 /* END: General styles */
 
@@ -107,7 +122,7 @@
 
 /* START: Car Card styles */
 .car-card {
-  @apply flex flex-col p-6 justify-center items-start text-black-100 bg-primary-blue-100 hover:bg-white hover:shadow-md rounded-3xl;
+  @apply flex flex-col p-6 justify-center items-start text-black-100 bg-primary-blue-100 hover:bg-white hover:shadow-md rounded-3xl transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl;
 }
 
 .car-card__content {
@@ -147,7 +162,7 @@
 }
 
 .car-card__btn-container {
-  @apply hidden group-hover:flex absolute bottom-0 w-full z-10;
+  @apply hidden group-hover:flex absolute bottom-0 w-full z-10 animate-slideUp;
 }
 /* END: Car Card styles */
 
