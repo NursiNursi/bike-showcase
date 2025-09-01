@@ -1,6 +1,6 @@
 "use client";
 
-import { BikeCard } from "@/components";
+import { BikeCard, SearchBar } from "@/components";
 import { allBikes, sportBike, cubBike, evBike } from "@/constants";
 import { useState, useEffect } from "react";
 
@@ -53,18 +53,24 @@ const Catalogue = () => {
 
   return (
     <div className="mt-12 padding-x padding-y max-width" id="discover">
-      <div className="home__text-container text-center lg:text-left">
-        <h1 className="text-4xl font-extrabold">Katalog Motor</h1>
-        <p className="text-xl text-gray-500 mb-2">
-          Temukan motor yang sesuai dengan kebutuhanmu.
-        </p>
+      <div className="flex flex-col lg:flex-row lg:justify-between gap-4 lg:gap-0">
+        <div className="home__text-container text-center lg:text-left">
+          <h1 className="text-4xl font-extrabold">Katalog Motor</h1>
+          <p className="text-xl text-gray-500 mb-2">
+            Temukan motor yang sesuai dengan kebutuhanmu.
+          </p>
+        </div>
+
+        <div className="w-full lg:w-[36%]">
+          <SearchBar />
+        </div>
       </div>
 
       <div className="flex justify-center items-center border-gray-300">
         {tabs.map((tab, index) => (
           <div
             key={index}
-            className={`px-4 py-2 text-2xl -mb-6 font-semibold cursor-pointer text-gray-600 transition-all duration-300 ease-in-out hover:text-black ${
+            className={`px-4 py-4 text-2xl -mb-6 font-semibold cursor-pointer text-gray-600 transition-all duration-300 ease-in-out hover:text-black ${
               activeTab === index
                 ? "font-extrabold text-black border-b-2 border-primary-red transform scale-105"
                 : "hover:scale-102"

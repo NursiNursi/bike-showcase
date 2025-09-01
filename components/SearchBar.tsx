@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import { IoIosSearch } from "react-icons/io";
 import SearchBikeType from "./SearchBikeType";
 import Image from "next/image";
 
@@ -49,9 +50,20 @@ const SearchBar = () => {
 
   return (
     <form className="searchbar" onSubmit={handleSearch}>
-      <div className="searchbar__item">
-        <SearchBikeType bikeModel={bikeModel} setBikeModel={setBikeModel} />
-        <SearchButton otherClasses="max-sm:hidden" />
+      <div className="searchbar__item relative">
+        <input
+          type="text"
+          id="large-input"
+          className="block w-full p-4 pr-12 text-gray-900 border border-gray-300 rounded-lg bg-primary-blue-100 text-base focus:ring-blue-500 focus:border-blue-500"
+          placeholder="Cari motor..."
+        />
+        <button
+          type="button"
+          className="absolute top-1/2 right-2 transform -translate-y-1/2 flex items-center justify-center w-10 h-10 bg-red-500 hover:bg-red-600 rounded-md transition-colors"
+          onClick={() => console.log("Search clicked")}
+        >
+          <IoIosSearch className="w-5 h-5 text-white" />
+        </button>
       </div>
     </form>
   );
