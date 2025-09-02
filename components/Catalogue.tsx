@@ -135,11 +135,10 @@ const Catalogue = () => {
             ) : (
               <div className="empty-state w-full text-center py-16">
                 <p className="text-gray-500 text-lg">
-                  No bikes found matching your search.
+                  Motor yang Anda cari tidak ditemukan.
                 </p>
                 <p className="text-gray-400 text-sm mt-2">
-                  Try adjusting your search terms or browse different
-                  categories.
+                  Coba ubah keyword pencarian Anda.
                 </p>
               </div>
             )}
