@@ -58,12 +58,29 @@
   }
 }
 
+@keyframes heroEntrance {
+  from {
+    opacity: 0;
+    transform: translateX(-100px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
 .animate-fadeIn {
-  animation: fadeIn 0.5s ease-in-out;
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in-out forwards;
 }
 
 .animate-slideUp {
   animation: slideUp 0.3s ease-out;
+}
+
+.animate-heroEntrance {
+  opacity: 0;
+  animation: heroEntrance 1s ease-out forwards;
 }
 /* END: General styles */
 
