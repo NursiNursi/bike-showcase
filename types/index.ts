@@ -9,6 +9,7 @@ export interface CustomButtonProps {
   rightIcon?: string;
   leftIcon?: string;
   isDisabled?: boolean;
+  variant?: "primary" | "secondary";
 }
 
 export interface SearchBikeModelProps {

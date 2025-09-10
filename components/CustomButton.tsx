@@ -11,12 +11,17 @@ const CustomButton = ({
   textStyles,
   rightIcon,
   leftIcon,
+  variant = "primary",
 }: CustomButtonProps) => {
   return (
     <button
       disabled={false}
       type={btnType || "button"}
-      className={`custom-btn ${containerStyles}`}
+      className={`custom-btn ${containerStyles} ${
+        variant === "primary"
+          ? "bg-primary-red text-white"
+          : "bg-white !text-red-500 !border !border-red-500"
+      }`}
       onClick={handleClick}
     >
       {leftIcon && (

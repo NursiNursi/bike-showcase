@@ -33,7 +33,7 @@
 }
 
 .custom-btn {
-  @apply flex flex-row relative justify-center items-center py-3 px-6 outline-none transition-all duration-200 ease-in-out hover:scale-105 hover:shadow-lg active:scale-95;
+  @apply flex flex-row relative justify-center items-center py-3 px-6 outline-none transition-all duration-200 ease-in-out hover:scale-105 hover:shadow-lg active:scale-95  rounded-full;
 }
 /* Animation styles */
 @keyframes fadeIn {

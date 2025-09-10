@@ -4,10 +4,10 @@ import Image from "next/image";
 import CustomButton from "./CustomButton";
 
 const Hero = () => {
-  const handleScroll = () => {
-    const catalogueSection = document.getElementById("discover");
-    if (catalogueSection) {
-      catalogueSection.scrollIntoView({
+  const handleScroll = (section: string) => {
+    const element = document.getElementById(section);
+    if (element) {
+      element.scrollIntoView({
         behavior: "smooth",
         block: "start",
       });
@@ -28,15 +28,28 @@ const Hero = () => {
           Desain Elegan, Teknologi Terdepan, Siap Temani Setiap Petualangan Anda
         </p>
 
-        <div
-          className="hidden lg:block animate-fadeIn"
-          style={{ animationDelay: "0.4s" }}
-        >
-          <CustomButton
-            title="Jelajahi Motor"
-            containerStyles="bg-primary-red text-white rounded-full mt-10"
-            handleClick={handleScroll}
-          />
+        <div className="flex gap-4">
+          <div
+            className="hidden lg:block animate-fadeIn"
+            style={{ animationDelay: "0.4s" }}
+          >
+            <CustomButton
+              title="Jelajahi Motor"
+              containerStyles="mt-10"
+              handleClick={() => handleScroll("discover")}
+            />
+          </div>
+          <div
+            className="hidden lg:block animate-fadeIn"
+            style={{ animationDelay: "0.4s" }}
+          >
+            <CustomButton
+              title="Simulasi Kredit"
+              containerStyles="mt-10"
+              handleClick={() => handleScroll("credit-simulation")}
+              variant="secondary"
+            />
+          </div>
         </div>
       </div>
       <div className="hero__image-container">
