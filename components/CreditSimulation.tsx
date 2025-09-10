@@ -117,14 +117,16 @@ const CreditSimulation = () => {
             </select>
           </div>
 
-          {selectedBike && (
+          {selectedBike && allBikeModels.some(bike => bike.model === searchTerm) && (
             <div className="flex items-center gap-4">
               <label className="text-sm font-medium text-gray-700 w-32 flex-shrink-0">
                 Harga Motor
               </label>
               <div className="flex-1 flex items-center h-[42px] px-3 py-2 border border-gray-300 rounded-md bg-gray-50">
                 <p className="flex text-[24px] font-extrabold">
-                  <span className="self-start text-[14px] font-semibold">Rp</span>
+                  <span className="self-start text-[14px] font-semibold">
+                    Rp
+                  </span>
                   {selectedBike.price}jt-an
                 </p>
               </div>
@@ -132,9 +134,9 @@ const CreditSimulation = () => {
           )}
         </div>
 
-        <div className="mt-6">
+        <div className="mt-6 flex justify-center">
           <button className="bg-primary-red text-white px-6 py-3 rounded-md hover:bg-red-700 transition-colors">
-            Hitung Cicilan
+            Konsultasi Cicilan
           </button>
         </div>
       </div>
