@@ -25,7 +25,8 @@ const Navbar = () => {
         <CustomButton
           title="Kontak"
           btnType="button"
-          containerStyles="text-primary-red rounded-full bg-white min-w-[130px] border border-primary-red"
+          containerStyles="min-w-[130px]"
+          variant="secondary"
           handleClick={handleClick}
         />
       </nav>
