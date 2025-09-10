@@ -7,6 +7,9 @@ const CreditSimulation = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
   const [selectedBike, setSelectedBike] = useState<any>(null);
+  const [downPayment, setDownPayment] = useState("Rp. 1 Juta - Rp. 2,5 Juta");
+  const [loanTerm, setLoanTerm] = useState("12");
+  const [showError, setShowError] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   // Combine all bike arrays
@@ -21,10 +24,21 @@ const CreditSimulation = () => {
     );
   }, [allBikeModels, searchTerm]);
 
+  // Check if searchTerm exactly matches a bike model
+  useEffect(() => {
+    const exactMatch = allBikeModels.find(
+      (bike) => bike.model.toLowerCase() === searchTerm.toLowerCase()
+    );
+    if (!exactMatch) {
+      setSelectedBike(null);
+    }
+  }, [searchTerm, allBikeModels]);
+
   const handleBikeSelect = (bike: any) => {
     setSelectedBike(bike);
     setSearchTerm(bike.model);
     setShowDropdown(false);
+    setShowError(false);
   };
 
   // Close dropdown when clicking outside
@@ -44,6 +58,16 @@ const CreditSimulation = () => {
     };
   }, []);
 
+  const handleClick = () => {
+    if (!selectedBike) {
+      setShowError(true);
+      return;
+    }
+    setShowError(false);
+    const message = `Halo kak! Saya tertarik cicilan motor Honda dan ingin konsultasi.%0ABerikut detailnya:%0AModel Motor: ${selectedBike.model}%0AUang Muka: ${downPayment}%0ATenor: ${loanTerm} bulan`;
+    window.open(`https://wa.me/628112340753?text=${message}`, "_blank");
+  };
+
   return (
     <div className="mt-12 padding-x padding-y max-width" id="credit-simulation">
       <div className="home__text-container">
@@ -53,10 +77,10 @@ const CreditSimulation = () => {
         </p>
       </div>
 
-      <div className="mt-8 bg-white rounded-lg shadow-lg p-6">
+      <div className="mt-8 bg-primary-blue-100 rounded-lg p-6">
         <div className="grid grid-cols-1 gap-6">
-          <div className="relative flex items-center gap-4" ref={dropdownRef}>
-            <label className="text-sm font-medium text-gray-700 w-32 flex-shrink-0">
+          <div className="relative flex gap-4" ref={dropdownRef}>
+            <label className="text-sm font-medium text-gray-700 w-32 flex-shrink-0 pt-3">
               Model Motor
             </label>
             <div className="flex-1 relative">
@@ -90,6 +114,11 @@ const CreditSimulation = () => {
                   ))}
                 </div>
               )}
+              {showError && (
+                <div className="text-red-500 text-sm pt-1">
+                  Silakan pilih model motor terlebih dahulu
+                </div>
+              )}
             </div>
           </div>
 
@@ -97,11 +126,21 @@ const CreditSimulation = () => {
             <label className="text-sm font-medium text-gray-700 w-32 flex-shrink-0">
               Uang Muka
             </label>
-            <select className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-red">
-              <option value="12">Rp. 1 Juta - Rp. 2,5 Juta</option>
-              <option value="24">Rp. 2,5 Juta - Rp. 3,5 Juta</option>
-              <option value="36">Rp. 3,5 Juta - Rp. 5 Juta</option>
-              <option value="48">Diatas Rp 5 Juta</option>
+            <select
+              value={downPayment}
+              onChange={(e) => setDownPayment(e.target.value)}
+              className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-red"
+            >
+              <option value="Rp. 1 Juta - Rp. 2,5 Juta">
+                Rp. 1 Juta - Rp. 2,5 Juta
+              </option>
+              <option value="Rp. 2,5 Juta - Rp. 3,5 Juta">
+                Rp. 2,5 Juta - Rp. 3,5 Juta
+              </option>
+              <option value="Rp. 3,5 Juta - Rp. 5 Juta">
+                Rp. 3,5 Juta - Rp. 5 Juta
+              </option>
+              <option value="Diatas Rp 5 Juta">Diatas Rp 5 Juta</option>
             </select>
           </div>
 
@@ -109,7 +148,11 @@ const CreditSimulation = () => {
             <label className="text-sm font-medium text-gray-700 w-32 flex-shrink-0">
               Tenor (Bulan)
             </label>
-            <select className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-red">
+            <select
+              value={loanTerm}
+              onChange={(e) => setLoanTerm(e.target.value)}
+              className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-red"
+            >
               <option value="12">12 Bulan</option>
               <option value="24">24 Bulan</option>
               <option value="36">36 Bulan</option>
@@ -117,25 +160,29 @@ const CreditSimulation = () => {
             </select>
           </div>
 
-          {selectedBike && allBikeModels.some(bike => bike.model === searchTerm) && (
-            <div className="flex items-center gap-4">
-              <label className="text-sm font-medium text-gray-700 w-32 flex-shrink-0">
-                Harga Motor
-              </label>
-              <div className="flex-1 flex items-center h-[42px] px-3 py-2 border border-gray-300 rounded-md bg-gray-50">
-                <p className="flex text-[24px] font-extrabold">
-                  <span className="self-start text-[14px] font-semibold">
-                    Rp
-                  </span>
-                  {selectedBike.price}jt-an
-                </p>
+          {selectedBike &&
+            allBikeModels.some((bike) => bike.model === searchTerm) && (
+              <div className="flex items-center gap-4">
+                <label className="text-sm font-medium text-gray-700 w-32 flex-shrink-0">
+                  Harga Motor
+                </label>
+                <div className="flex-1 flex items-center h-[42px] px-3 py-2 border border-gray-300 rounded-md bg-gray-50">
+                  <p className="flex text-[24px] font-extrabold">
+                    <span className="self-start text-[14px] font-semibold">
+                      Rp
+                    </span>
+                    {selectedBike.price}jt-an
+                  </p>
+                </div>
               </div>
-            </div>
-          )}
+            )}
         </div>
 
         <div className="mt-6 flex justify-center">
-          <button className="bg-primary-red text-white px-6 py-3 rounded-md hover:bg-red-700 transition-colors">
+          <button
+            onClick={handleClick}
+            className="bg-primary-red text-white px-6 py-3 rounded-md hover:bg-red-700 transition-colors"
+          >
             Konsultasi Cicilan
           </button>
         </div>
