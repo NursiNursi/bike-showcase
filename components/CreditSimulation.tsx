@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo, useEffect, useRef } from "react";
 import { allBikes, sportBike, cubBike, evBike } from "@/constants";
+import { IoChevronDown } from "react-icons/io5";
 
 const CreditSimulation = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -77,10 +78,13 @@ const CreditSimulation = () => {
         </p>
       </div>
 
-      <div className="mt-8 bg-primary-blue-100 rounded-lg p-6">
+      <div className="mt-8 bg-primary-blue-100 rounded-3xl p-6">
         <div className="grid grid-cols-1 gap-6">
-          <div className="relative flex gap-4" ref={dropdownRef}>
-            <label className="text-sm font-medium text-gray-700 w-32 flex-shrink-0 pt-3">
+          <div
+            className="relative flex flex-col md:flex-row gap-2 md:gap-4"
+            ref={dropdownRef}
+          >
+            <label className="text-md font-medium text-gray-700 md:w-32 md:flex-shrink-0 md:pt-3">
               Model Motor
             </label>
             <div className="flex-1 relative">
@@ -122,48 +126,54 @@ const CreditSimulation = () => {
             </div>
           </div>
 
-          <div className="flex items-center gap-4">
-            <label className="text-sm font-medium text-gray-700 w-32 flex-shrink-0">
+          <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+            <label className="text-md font-medium text-gray-700 md:w-32 md:flex-shrink-0">
               Uang Muka
             </label>
-            <select
-              value={downPayment}
-              onChange={(e) => setDownPayment(e.target.value)}
-              className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-red"
-            >
-              <option value="Rp. 1 Juta - Rp. 2,5 Juta">
-                Rp. 1 Juta - Rp. 2,5 Juta
-              </option>
-              <option value="Rp. 2,5 Juta - Rp. 3,5 Juta">
-                Rp. 2,5 Juta - Rp. 3,5 Juta
-              </option>
-              <option value="Rp. 3,5 Juta - Rp. 5 Juta">
-                Rp. 3,5 Juta - Rp. 5 Juta
-              </option>
-              <option value="Diatas Rp 5 Juta">Diatas Rp 5 Juta</option>
-            </select>
+            <div className="flex-1 relative">
+              <select
+                value={downPayment}
+                onChange={(e) => setDownPayment(e.target.value)}
+                className="w-full appearance-none px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-red pr-10"
+              >
+                <option value="Rp. 1 Juta - Rp. 2,5 Juta">
+                  Rp. 1 Juta - Rp. 2,5 Juta
+                </option>
+                <option value="Rp. 2,5 Juta - Rp. 3,5 Juta">
+                  Rp. 2,5 Juta - Rp. 3,5 Juta
+                </option>
+                <option value="Rp. 3,5 Juta - Rp. 5 Juta">
+                  Rp. 3,5 Juta - Rp. 5 Juta
+                </option>
+                <option value="Diatas Rp 5 Juta">Diatas Rp 5 Juta</option>
+              </select>
+              <IoChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 pointer-events-none" size={16} />
+            </div>
           </div>
 
-          <div className="flex items-center gap-4">
-            <label className="text-sm font-medium text-gray-700 w-32 flex-shrink-0">
+          <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+            <label className="text-md font-medium text-gray-700 md:w-32 md:flex-shrink-0">
               Tenor (Bulan)
             </label>
-            <select
-              value={loanTerm}
-              onChange={(e) => setLoanTerm(e.target.value)}
-              className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-red"
-            >
-              <option value="12">12 Bulan</option>
-              <option value="24">24 Bulan</option>
-              <option value="36">36 Bulan</option>
-              <option value="48">48 Bulan</option>
-            </select>
+            <div className="flex-1 relative">
+              <select
+                value={loanTerm}
+                onChange={(e) => setLoanTerm(e.target.value)}
+                className="w-full appearance-none px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-red pr-10"
+              >
+                <option value="12">12 Bulan</option>
+                <option value="24">24 Bulan</option>
+                <option value="36">36 Bulan</option>
+                <option value="48">48 Bulan</option>
+              </select>
+              <IoChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 pointer-events-none" size={16} />
+            </div>
           </div>
 
           {selectedBike &&
             allBikeModels.some((bike) => bike.model === searchTerm) && (
-              <div className="flex items-center gap-4">
-                <label className="text-sm font-medium text-gray-700 w-32 flex-shrink-0">
+              <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+                <label className="text-sm font-medium text-gray-700 md:w-32 md:flex-shrink-0">
                   Harga Motor
                 </label>
                 <div className="flex-1 flex items-center h-[42px] px-3 py-2 border border-gray-300 rounded-md bg-gray-50">
