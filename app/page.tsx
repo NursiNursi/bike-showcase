@@ -10,10 +10,10 @@ export default function Home() {
   return (
     <main className="overflow-hidden">
       <Hero />
+      <Profile />
       <Catalogue />
       <CreditSimulation />
       <ClientReview />
-      <Profile />
     </main>
   );
 }

@@ -9,7 +9,7 @@ const Profile = () => {
   };
 
   return (
-    <div className="mt-12 padding-x padding-y max-width" id="discover">
+    <div className="padding-x padding-y max-width" id="discover">
       <div className="flex flex-col lg:flex-row justify-center items-center">
         <div className="w-[80%] sm:w-[60%] lg:w-[40%] mt-12 lg:mt-48 h-[330px] relative lg:border-2 lg:border-primary-red rounded-xl flex-shrink-0">
           <Image

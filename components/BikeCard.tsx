@@ -14,7 +14,7 @@ interface BikeCardProps {
 const BikeCard = ({ bike }: BikeCardProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const { model, spec, keyless, price, image } = bike;
+  const { model, spec, keyless, price, image, transmissionType } = bike;
 
   const bikeImage = image || "";
 
@@ -49,7 +49,7 @@ const BikeCard = ({ bike }: BikeCardProps) => {
               height={24}
               alt="steering wheel"
             />
-            <p className="text-[14px]">Matic</p>
+            <p className="text-[14px]">{transmissionType}</p>
           </div>
           <div className="flex flex-col justify-center items-center gap-2">
             <Image src="/key.png" width={24} height={24} alt="tire" />
@@ -60,7 +60,9 @@ const BikeCard = ({ bike }: BikeCardProps) => {
           <div className="flex flex-col justify-center items-center gap-2">
             <Image src="/brake.png" width={24} height={24} alt="gas" />
             <p className="text-[14px]">
-              {renderBrakingSystemLabel(spec?.brakingSystem)}
+              {renderBrakingSystemLabel(spec?.brakingSystem) ||
+                spec?.brakingSystem ||
+                "N/A"}
             </p>
           </div>
         </div>
