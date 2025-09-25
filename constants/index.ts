@@ -235,7 +235,7 @@ export const evBike = [
       brakingSystem: "Combi Brake System (CBS)",
     },
     transmissionType: "Otomatis",
-    keyless: true,
+    keyless: false,
     price: 28,
     image: "/bikes/icon.png",
     colorVariant: [
@@ -255,7 +255,7 @@ export const evBike = [
       brakingSystem: "Combi Brake System (CBS)",
     },
     transmissionType: "Otomatis",
-    keyless: true,
+    keyless: false,
     price: 40,
     image: "/bikes/em1.png",
     colorVariant: [
@@ -300,7 +300,7 @@ export const sportBike = [
       rearBrake: "Tromol",
     },
     transmissionType: "Manual",
-    keyless: true,
+    keyless: false,
     price: 22,
     image: "/bikes/verza.png",
     colorVariant: [
@@ -320,7 +320,7 @@ export const sportBike = [
       rearBrake: "Wavy Disc Brake",
     },
     transmissionType: "Manual",
-    keyless: true,
+    keyless: false,
     price: 31,
     image: "/bikes/cb150r.png",
     colorVariant: [
@@ -342,7 +342,7 @@ export const sportBike = [
       rearBrake: "Wavy Disc Brake",
     },
     transmissionType: "Manual",
-    keyless: true,
+    keyless: false,
     price: 34,
     image: "/bikes/cb150x.png",
     colorVariant: [
@@ -462,7 +462,7 @@ export const cubBike = [
       rearBrake: "Tromol",
     },
     transmissionType: "Manual",
-    keyless: true,
+    keyless: false,
     price: 16,
     image: "/bikes/revo.png",
     colorVariant: [
@@ -483,7 +483,7 @@ export const cubBike = [
       rearBrake: "Cakram Hidrolik dengan Piston Tunggal",
     },
     transmissionType: "Manual",
-    keyless: true,
+    keyless: false,
     price: 19,
     image: "/bikes/suprax.png",
     colorVariant: [
@@ -503,7 +503,7 @@ export const cubBike = [
       rearBrake: "Cakram Hidrolik",
     },
     transmissionType: "Manual",
-    keyless: true,
+    keyless: false,
     price: 25,
     image: "/bikes/supragtr.png",
     colorVariant: [
@@ -524,7 +524,7 @@ export const cubBike = [
       rearBrake: "Mechanical Leading Trailing",
     },
     transmissionType: "Manual",
-    keyless: true,
+    keyless: false,
     price: 77,
     image: "/bikes/c125.png",
     colorVariant: [
@@ -543,7 +543,7 @@ export const cubBike = [
       frontBrake: "220mm Hydraulic Disc",
       rearBrake: "190mm Hydraulic Disc",
     },
-    keyless: true,
+    keyless: false,
     price: 81,
     image: "/bikes/ct125.png",
     colorVariant: ["/bikes/ct125/red.png", "/bikes/ct125/red.png"],

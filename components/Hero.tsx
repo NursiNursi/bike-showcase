@@ -39,10 +39,7 @@ const Hero = () => {
               handleClick={() => handleScroll("discover")}
             />
           </div>
-          <div
-            className="hidden lg:block animate-fadeIn"
-            style={{ animationDelay: "0.4s" }}
-          >
+          <div className="animate-fadeIn" style={{ animationDelay: "0.4s" }}>
             <CustomButton
               title="Simulasi Kredit"
               containerStyles="mt-10"
