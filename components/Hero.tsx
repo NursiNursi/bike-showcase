@@ -39,7 +39,10 @@ const Hero = () => {
               handleClick={() => handleScroll("discover")}
             />
           </div>
-          <div className="animate-fadeIn" style={{ animationDelay: "0.4s" }}>
+          <div
+            className="animate-fadeIn w-full lg:w-auto flex justify-center lg:justify-start"
+            style={{ animationDelay: "0.4s" }}
+          >
             <CustomButton
               title="Simulasi Kredit"
               containerStyles="mt-10"
