@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.mia-motorhondabandung.com/
+
+# Sitemaps
+Sitemap: https://www.mia-motorhondabandung.com/sitemap.xml
