@@ -5,7 +5,12 @@ import CustomButton from "./CustomButton";
 
 const Profile = () => {
   const handleClick = () => {
-    window.open("https://wa.me/628112340753", "_blank");
+    const message =
+      "Halo Mia, saya ingin menanyakan informasi lebih lanjut mengenai promo motor Honda.";
+    window.open(
+      `https://wa.me/628112340753?text=${encodeURIComponent(message)}`,
+      "_blank"
+    );
   };
 
   return (
