@@ -7,6 +7,9 @@ import CustomFilter from "./CustomFilter";
 import SearchBikeType from "./SearchBikeType";
 import BikeCard from "./BikeCard";
 
+import ReviewCard from "./ReviewCard";
+import ReviewCarousel from "./ReviewCarousel";
+
 export {
   Hero,
   CustomButton,
@@ -16,4 +19,6 @@ export {
   CustomFilter,
   SearchBikeType,
   BikeCard,
+  ReviewCard,
+  ReviewCarousel,
 };
