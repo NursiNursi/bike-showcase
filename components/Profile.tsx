@@ -6,7 +6,7 @@ import CustomButton from "./CustomButton";
 const Profile = () => {
   const handleClick = () => {
     const message =
-      "Halo Mia, saya ingin menanyakan informasi lebih lanjut mengenai promo motor Honda.";
+      "Halo Mia, saya mau tanya info lebih lanjut soal promo motor Honda. Kontak kamu saya dapat dari website.";
     window.open(
       `https://wa.me/628112340753?text=${encodeURIComponent(message)}`,
       "_blank"
