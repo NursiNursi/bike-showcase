@@ -82,6 +82,7 @@ export const allBikes = [
     price: 19,
     image: "/bikes/beat-street.png",
     colorVariant: [
+      "/bikes/beat-street/white.png",
       "/bikes/beat-street/brown.png",
       "/bikes/beat-street/black.png",
     ],
@@ -146,6 +147,7 @@ export const allBikes = [
     price: 28,
     image: "/bikes/stylo.png",
     colorVariant: [
+      "/bikes/stylo/mblue.png",
       "/bikes/stylo/gbeige.png",
       "/bikes/stylo/gblack.png",
       "/bikes/stylo/gred.png",
@@ -194,14 +196,12 @@ export const allBikes = [
     price: 36,
     image: "/bikes/adv.png",
     colorVariant: [
-      "/bikes/adv/dblack.png",
-      "/bikes/adv/dgray.png",
-      "/bikes/adv/dred.png",
-      "/bikes/adv/dwhite.png",
+      "/bikes/adv/suvbrown.png",
+      "/bikes/adv/mgreen.png",
       "/bikes/adv/mblack.png",
       "/bikes/adv/mbrown.png",
       "/bikes/adv/mred.png",
-      "/bikes/adv/mwhite.png",
+      "/bikes/adv/white.png",
     ],
   },
   {
