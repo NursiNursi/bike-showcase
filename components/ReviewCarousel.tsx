@@ -93,7 +93,7 @@ const ReviewCarousel: React.FC<ReviewCarouselProps> = ({
       <div className="w-full review-carousel-container">
         <Slider {...gridSettings}>
           {groupedReviews.map((group, slideIndex) => (
-            <div key={slideIndex} className="outline-none px-2">
+            <div key={slideIndex} className="outline-none p-4">
               <div className="w-full">
                 {/* First row - 3 reviews */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
