@@ -49,7 +49,7 @@ export default async function BikeDetailPage({ params }: PageProps) {
     bike.spec?.brakingSystem;
 
   return (
-    <div className="px-4 md:px-8 lg:px-12 pb-8 max-w-7xl mx-auto mt-8">
+    <div className="relative z-0 pt-20 sm:pt-24 md:pt-28 px-4 md:px-8 lg:px-12 pb-8 max-w-7xl mx-auto">
       <div className="mb-6">
         <Link
           href="/"
