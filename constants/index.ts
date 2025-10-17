@@ -10,7 +10,7 @@ export const allBikes = [
     },
     transmissionType: "Matic",
     keyless: true,
-    price: 23,
+    price: 24,
     image: "/bikes/vario125.png",
     colorVariant: [
       "/bikes/v125/v125-matteblack.png",
@@ -31,7 +31,7 @@ export const allBikes = [
     },
     transmissionType: "Matic",
     keyless: true,
-    price: 27,
+    price: 28,
     image: "/bikes/vario160.png",
     colorVariant: [
       "/bikes/v160/v160-mblack.png",
@@ -55,7 +55,7 @@ export const allBikes = [
     },
     transmissionType: "Matic",
     keyless: false,
-    price: 18,
+    price: 19,
     image: "/bikes/beat.png",
     colorVariant: [
       "/bikes/beat/black.png",
@@ -79,7 +79,7 @@ export const allBikes = [
     },
     transmissionType: "Matic",
     keyless: false,
-    price: 19,
+    price: 20,
     image: "/bikes/beat-street.png",
     colorVariant: [
       "/bikes/beat-street/white.png",
@@ -98,7 +98,7 @@ export const allBikes = [
     },
     transmissionType: "Matic",
     keyless: false,
-    price: 19,
+    price: 20,
     image: "/bikes/genio.png",
     colorVariant: [
       "/bikes/genio/fblack.png",
@@ -120,7 +120,7 @@ export const allBikes = [
     },
     transmissionType: "Matic",
     keyless: true,
-    price: 22,
+    price: 23,
     image: "/bikes/scoopy.png",
     colorVariant: [
       "/bikes/scoopy/fblue.png",
@@ -144,7 +144,7 @@ export const allBikes = [
     },
     transmissionType: "Matic",
     keyless: true,
-    price: 28,
+    price: 29,
     image: "/bikes/stylo.png",
     colorVariant: [
       "/bikes/stylo/mblue.png",
@@ -257,7 +257,7 @@ export const evBike = [
     },
     transmissionType: "Matic",
     keyless: false,
-    price: 40,
+    price: 46,
     image: "/bikes/em1.png",
     colorVariant: [
       "/bikes/em1/mblack.png",
@@ -276,7 +276,7 @@ export const evBike = [
     },
     transmissionType: "Matic",
     keyless: true,
-    price: 53,
+    price: 60,
     image: "/bikes/cuv.png",
     colorVariant: [
       "/bikes/cuv/mblack.png",
@@ -303,7 +303,7 @@ export const sportBike = [
     },
     transmissionType: "Manual",
     keyless: false,
-    price: 22,
+    price: 24,
     image: "/bikes/verza.png",
     colorVariant: [
       "/bikes/verza/black.png",
@@ -324,7 +324,7 @@ export const sportBike = [
     },
     transmissionType: "Manual",
     keyless: false,
-    price: 31,
+    price: 34,
     image: "/bikes/cb150r.png",
     colorVariant: [
       "/bikes/cb150r/black.png",
@@ -347,7 +347,7 @@ export const sportBike = [
     },
     transmissionType: "Manual",
     keyless: false,
-    price: 34,
+    price: 35,
     image: "/bikes/cb150x.png",
     colorVariant: [
       "/bikes/cb150x/mblack.png",
@@ -391,7 +391,7 @@ export const sportBike = [
     },
     transmissionType: "Manual",
     keyless: false,
-    price: 38,
+    price: 39,
     image: "/bikes/cbr150r.png",
     colorVariant: [
       "/bikes/cbr150r/red.png",
@@ -412,7 +412,7 @@ export const sportBike = [
     },
     transmissionType: "Manual",
     keyless: false,
-    price: 64,
+    price: 66,
     image: "/bikes/cbr250rr.png",
     colorVariant: [
       "/bikes/cbr250rr/red.png",
@@ -436,7 +436,7 @@ export const sportBike = [
     },
     transmissionType: "Manual",
     keyless: false,
-    price: 93,
+    price: 95,
     image: "/bikes/crf250rally.png",
     colorVariant: ["/bikes/crf250rally/red.png", "/bikes/crf250rally/red.png"],
   },
@@ -453,7 +453,7 @@ export const sportBike = [
     },
     transmissionType: "Manual",
     keyless: false,
-    price: 79,
+    price: 86,
     image: "/bikes/crf250l.png",
     colorVariant: ["/bikes/crf250l/red.png", "/bikes/crf250l/red.png"],
   },
@@ -473,7 +473,7 @@ export const cubBike = [
     },
     transmissionType: "Manual",
     keyless: false,
-    price: 16,
+    price: 17,
     image: "/bikes/revo.png",
     colorVariant: [
       "/bikes/revo/ared.png",
@@ -495,7 +495,7 @@ export const cubBike = [
     },
     transmissionType: "Manual",
     keyless: false,
-    price: 19,
+    price: 21,
     image: "/bikes/suprax.png",
     colorVariant: [
       "/bikes/suprax/black.png",
@@ -516,34 +516,13 @@ export const cubBike = [
     },
     transmissionType: "Manual",
     keyless: false,
-    price: 25,
+    price: 26,
     image: "/bikes/supragtr.png",
     colorVariant: [
       "/bikes/supragtr/black.png",
       "/bikes/supragtr/mred.png",
       "/bikes/supragtr/msilver.png",
       "/bikes/supragtr/red.png",
-    ],
-  },
-  {
-    model: "C125",
-    spec: {
-      engineType: "4-stroke SOHC 2-Valve",
-      displacement: "124 cc",
-      maxPower: "7,2 kW / 7.500 rpm",
-      maxTorque: "10,4 nM / 6.250 rpm",
-      frontBrake: "Hydraulic Disc",
-      rearBrake: "Mechanical Leading Trailing",
-      brakingSystem: "ABS",
-    },
-    transmissionType: "Manual",
-    keyless: false,
-    price: 77,
-    image: "/bikes/c125.png",
-    colorVariant: [
-      "/bikes/c125/mattegray.png",
-      "/bikes/c125/pearlgray.png",
-      "/bikes/c125/pearlred.png",
     ],
   },
   {
