@@ -1,11 +1,16 @@
 "use client";
 
-import { BikeProps } from "@/types";
-import Image from "next/image";
 import React, { useState } from "react";
+
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+
 import CustomButton from "./CustomButton";
-import { renderBrakingSystemLabel } from "@/utils";
 import BikeDetails from "./BikeDetails";
+import NavigationLoading from "./NavigationLoading";
+
+import { BikeProps } from "@/types";
+import { renderBrakingSystemLabel, slugifyModel } from "@/utils";
 
 interface BikeCardProps {
   bike: BikeProps;
@@ -13,13 +18,21 @@ interface BikeCardProps {
 
 const BikeCard = ({ bike }: BikeCardProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isNavigating, setIsNavigating] = useState(false);
+  const router = useRouter();
 
   const { model, spec, keyless, price, image, transmissionType } = bike;
 
   const bikeImage = image || "";
 
   return (
-    <div className="car-card group">
+    <div
+      className="car-card group"
+      onMouseEnter={() => {
+        const slug = slugifyModel(model);
+        if (slug) router.prefetch(`/bikes/${slug}`);
+      }}
+    >
       <div className="car-card__content">
         <h2 className="car-card__content-title">{model}</h2>
       </div>
@@ -69,14 +82,22 @@ const BikeCard = ({ bike }: BikeCardProps) => {
 
         <div className="car-card__btn-container">
           <CustomButton
-            title="Detail Lebih Lanjut"
+            title="Pesan Sekarang"
             containerStyles="w-full py-[16px] rounded-full bg-primary-red"
             textStyles="text-white text-[14px] leading-[17px] font-bold"
             rightIcon="/right-arrow.svg"
-            handleClick={() => setIsOpen(true)}
+            handleClick={() => {
+              const slug = slugifyModel(model);
+              if (slug) {
+                setIsNavigating(true);
+                router.push(`/bikes/${slug}`);
+              }
+            }}
           />
         </div>
       </div>
+
+      {isNavigating && <NavigationLoading message="Memuat detail motor..." />}
 
       <BikeDetails
         isOpen={isOpen}

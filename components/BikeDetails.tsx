@@ -10,7 +10,7 @@ import {
 } from "@headlessui/react";
 import Image from "next/image";
 
-import { Fragment, SetStateAction, useState, useEffect } from "react";
+import { Fragment, SetStateAction, useState, useEffect, useRef } from "react";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -85,9 +85,9 @@ const BikeDetails = ({ isOpen, closeModal, bike }: BikeDetailsProps) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [imagesLoaded, setImagesLoaded] = useState<boolean[]>([]);
   const [allImagesLoaded, setAllImagesLoaded] = useState(false);
+  const sliderRef = useRef<Slider | null>(null);
   console.log(bike);
 
-  // Initialize loading state when bike changes
   useEffect(() => {
     if (bike.colorVariant) {
       setImagesLoaded(new Array(bike.colorVariant.length).fill(false));
@@ -97,13 +97,13 @@ const BikeDetails = ({ isOpen, closeModal, bike }: BikeDetailsProps) => {
 
   // Check if all images are loaded
   useEffect(() => {
-    if (imagesLoaded.length > 0 && imagesLoaded.every(loaded => loaded)) {
+    if (imagesLoaded.length > 0 && imagesLoaded.every((loaded) => loaded)) {
       setAllImagesLoaded(true);
     }
   }, [imagesLoaded]);
 
   const handleImageLoad = (index: number) => {
-    setImagesLoaded(prev => {
+    setImagesLoaded((prev) => {
       const newState = [...prev];
       newState[index] = true;
       return newState;
@@ -135,7 +135,7 @@ const BikeDetails = ({ isOpen, closeModal, bike }: BikeDetailsProps) => {
           width: "10px",
           height: "10px",
           borderRadius: "50%",
-          background: i === currentSlide ? "#FF0000" : "#d8d8d8", // Change color indicator as per requirement
+          background: i === currentSlide ? "#FF0000" : "#d8d8d8",
         }}
       />
     ),
@@ -150,7 +150,7 @@ const BikeDetails = ({ isOpen, closeModal, bike }: BikeDetailsProps) => {
   return (
     <>
       <Transition appear show={isOpen} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={closeModal}>
+        <Dialog as="div" className="relative z-50" onClose={closeModal}>
           <TransitionChild
             as={Fragment}
             enter="ease-out duration-300"
@@ -194,12 +194,18 @@ const BikeDetails = ({ isOpen, closeModal, bike }: BikeDetailsProps) => {
                       <div className="relative w-full h-64 bg-gray-200 rounded-lg animate-pulse flex items-center justify-center">
                         <div className="flex flex-col items-center gap-2">
                           <div className="w-8 h-8 border-4 border-gray-300 border-t-blue-500 rounded-full animate-spin"></div>
-                          <p className="text-gray-500 text-sm">Loading images...</p>
+                          <p className="text-gray-500 text-sm">
+                            Loading images...
+                          </p>
                         </div>
                       </div>
                     )}
-                    <div className={`transition-opacity duration-500 ${allImagesLoaded ? 'opacity-100' : 'opacity-0 absolute'}`}>
-                      <Slider {...settings}>
+                    <div
+                      className={`transition-opacity duration-500 ${
+                        allImagesLoaded ? "opacity-100" : "opacity-0 absolute"
+                      }`}
+                    >
+                      <Slider ref={sliderRef} {...settings}>
                         {bike.colorVariant?.map((variant, index) => (
                           <div
                             key={variant}
@@ -219,6 +225,39 @@ const BikeDetails = ({ isOpen, closeModal, bike }: BikeDetailsProps) => {
                         ))}
                       </Slider>
                     </div>
+                    {bike.colorVariant && bike.colorVariant.length > 0 && (
+                      <div className="mt-3">
+                        <h3 className="text-sm font-semibold mb-2">
+                          Pilihan Warna
+                        </h3>
+                        <div className="flex gap-2 overflow-x-auto hide-scrollbar border border-red-800 rounded-md p-4">
+                          {bike.colorVariant.map((src, idx) => (
+                            <button
+                              key={`${src}-${idx}`}
+                              className={`relative w-14 h-14 flex-shrink-0 rounded-md border ${
+                                currentSlide === idx
+                                  ? "ring-2 ring-primary-red"
+                                  : ""
+                              }`}
+                              onClick={() => {
+                                sliderRef.current?.slickGoTo(idx);
+                                setCurrentSlide(idx);
+                              }}
+                              aria-label={`Pilih warna ${idx + 1}`}
+                            >
+                              <Image
+                                src={src}
+                                alt={`Warna ${idx + 1}`}
+                                fill
+                                className="object-contain rounded-md"
+                                sizes="56px"
+                                loading="lazy"
+                              />
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
 
                   <div className="flex-1 flex flex-col gap-1 overflow-x-auto hide-scrollbar">
