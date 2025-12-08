@@ -5,6 +5,7 @@ import Catalogue from "@/components/Catalogue";
 import Profile from "@/components/Profile";
 import CreditSimulation from "@/components/CreditSimulation";
 import ClientReview from "@/components/ClientReview";
+import Article from "@/components/Article";
 
 export default function Home() {
   return (
@@ -14,7 +15,7 @@ export default function Home() {
       <Catalogue />
       <CreditSimulation />
       <ClientReview />
+      <Article />
     </main>
   );
 }
-

@@ -6,8 +6,6 @@ import SearchBar from "./SearchBar";
 import CustomFilter from "./CustomFilter";
 import SearchBikeType from "./SearchBikeType";
 import BikeCard from "./BikeCard";
-
-import ReviewCard from "./ReviewCard";
 import ReviewCarousel from "./ReviewCarousel";
 
 export {
@@ -19,6 +17,6 @@ export {
   CustomFilter,
   SearchBikeType,
   BikeCard,
-  ReviewCard,
+  // ReviewCard,
   ReviewCarousel,
 };

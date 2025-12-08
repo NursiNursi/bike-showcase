@@ -20,6 +20,7 @@ export function renderBrakingSystemLabel(brakingSystem: string | undefined) {
 // Slug helpers and bike lookup
 import type { BikeProps } from "@/types";
 import { allBikes, sportBike, cubBike, evBike } from "@/constants";
+import { articles } from "@/constants/article";
 
 export function slugifyModel(model: string | undefined): string {
   if (!model) return "";
@@ -43,4 +44,21 @@ export function getAllBikeSlugs(): string[] {
 
 export function findBikeBySlug(slug: string): BikeProps | undefined {
   return getAllBikes().find((b) => slugifyModel(b.model) === slug);
+}
+
+export function slugifyArticleTitle(title: string): string {
+  return title
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/:/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/[^a-z0-9\-]/g, "");
+}
+
+export function getAllArticleSlugs(): string[] {
+  return articles.map((a) => slugifyArticleTitle(a.title));
+}
+
+export function findArticleBySlug(slug: string) {
+  return articles.find((a) => slugifyArticleTitle(a.title) === slug);
 }
