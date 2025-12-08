@@ -226,26 +226,6 @@ export const allBikes = [
       "/bikes/adv/white.png",
     ],
   },
-  {
-    model: "Forza",
-    spec: {
-      engineType: "eSP+, 4-katup, 4-langkah, SOHC",
-      displacement: "249 cc",
-      maxPower: "17 kW / 7,750 rpm",
-      maxTorque: "24 Nm / 6,250 rpm",
-      brakingSystem: "Anti-Lock Braking System (ABS)",
-    },
-    transmissionType: "Matic",
-    keyless: true,
-    price: 90,
-    image: "/bikes/forza.png",
-    colorVariant: [
-      "/bikes/forza/black.png",
-      "/bikes/forza/blue.png",
-      "/bikes/forza/grey.png",
-      "/bikes/forza/red.png",
-    ],
-  },
 ];
 
 export const evBike = [
@@ -445,40 +425,6 @@ export const sportBike = [
       "/bikes/cbr250rr/blue.png",
     ],
   },
-  {
-    model: "CRF250 Rally",
-    spec: {
-      engineType: "4-Stroke DOHC 4-valve Single Cylinder",
-      displacement: "249.6 cc",
-      maxPower: "18.9 kW / 8,500 rpm",
-      maxTorque: "23.1 Nm / 6,500 rpm",
-      frontBrake: "Floating Wave Disc with Dual-Piston Calipers",
-      rearBrake: "Wave Disc with Single-Piston Calipers",
-      brakingSystem: "ABS",
-    },
-    transmissionType: "Manual",
-    keyless: false,
-    price: 95,
-    image: "/bikes/crf250rally.png",
-    colorVariant: ["/bikes/crf250rally/red.png", "/bikes/crf250rally/red.png"],
-  },
-  {
-    model: "CRF250L",
-    spec: {
-      engineType: "4-Stroke DOHC 4-valve Single Cylinder",
-      displacement: "249.67 cc",
-      maxPower: "18.9 kW / 8,500 rpm",
-      maxTorque: "23.1 Nm / 6,500 rpm",
-      frontBrake: "Wavy Disc Brake, Dual Piston Calipers",
-      rearBrake: "Wavy Disc Brake, Single Piston Calipers",
-      brakingSystem: "Disc Brake",
-    },
-    transmissionType: "Manual",
-    keyless: false,
-    price: 86,
-    image: "/bikes/crf250l.png",
-    colorVariant: ["/bikes/crf250l/red.png", "/bikes/crf250l/red.png"],
-  },
 ];
 
 export const cubBike = [
@@ -546,23 +492,6 @@ export const cubBike = [
       "/bikes/supragtr/msilver.png",
       "/bikes/supragtr/red.png",
     ],
-  },
-  {
-    model: "CT125",
-    spec: {
-      engineType: "Air-Cooled, 4-Stroke, SOHC Single Cylinder",
-      displacement: "124 cc",
-      maxPower: "6,76 kW / 6250 rpm",
-      maxTorque: "10,8 Nm/4.750 rpm",
-      frontBrake: "220mm Hydraulic Disc",
-      rearBrake: "190mm Hydraulic Disc",
-      brakingSystem: "Disc Brake",
-    },
-    transmissionType: "Manual",
-    keyless: false,
-    price: 81,
-    image: "/bikes/ct125.png",
-    colorVariant: ["/bikes/ct125/red.png", "/bikes/ct125/red.png"],
   },
 ];
 
