@@ -7,6 +7,7 @@ import CustomFilter from "./CustomFilter";
 import SearchBikeType from "./SearchBikeType";
 import BikeCard from "./BikeCard";
 import ReviewCarousel from "./ReviewCarousel";
+import ChatWidget from "./ChatWidget";
 
 export {
   Hero,
@@ -19,4 +20,5 @@ export {
   BikeCard,
   // ReviewCard,
   ReviewCarousel,
+  ChatWidget,
 };
