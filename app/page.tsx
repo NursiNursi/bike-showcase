@@ -12,10 +12,18 @@ export default function Home() {
     <main className="overflow-hidden">
       <Hero />
       <Profile />
-      <Catalogue />
-      <CreditSimulation />
-      <ClientReview />
-      <Article />
+      <section id="catalogue" className="scroll-mt-24" aria-label="Catalogue">
+        <Catalogue />
+      </section>
+      <section id="credit-simulation" className="scroll-mt-24" aria-label="Credit Simulation">
+        <CreditSimulation />
+      </section>
+      <section id="client-review" className="scroll-mt-24" aria-label="Client Review">
+        <ClientReview />
+      </section>
+      <section id="articles" className="scroll-mt-24" aria-label="Articles">
+        <Article />
+      </section>
     </main>
   );
 }
