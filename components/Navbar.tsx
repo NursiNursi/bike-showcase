@@ -13,10 +13,10 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const sections = [
-    { id: "catalogue", label: "Catalogue" },
-    { id: "credit-simulation", label: "Credit Simulation" },
-    { id: "client-review", label: "Client Review" },
-    { id: "articles", label: "Article" },
+    { id: "catalogue", label: "Katalog" },
+    { id: "credit-simulation", label: "Simulasi Kredit" },
+    { id: "client-review", label: "Ulasan Pelanggan" },
+    { id: "articles", label: "Artikel" },
   ];
 
   const NavLinks = () => (
@@ -39,7 +39,7 @@ const Navbar = () => {
   );
 
   return (
-    <header className="w-full sticky top-0 z-50 md:absolute md:top-auto md:z-10 bg-white/90 md:bg-transparent backdrop-blur-md">
+    <header className="w-full sticky top-0 z-50 md:absolute md:top-auto md:z-10 bg-white/90 md:bg-transparent">
       <nav
         className="max-w-[1440px] mx-auto flex justify-between items-center sm:px-16 px-6 py-4"
         aria-label="Primary"
