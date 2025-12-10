@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import CustomButton from "./CustomButton";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const Navbar = () => {
   const handleClick = () => {
@@ -11,7 +11,6 @@ const Navbar = () => {
   };
 
   const [isOpen, setIsOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState<string>("");
 
   const sections = [
     { id: "catalogue", label: "Catalogue" },
@@ -20,55 +19,27 @@ const Navbar = () => {
     { id: "articles", label: "Article" },
   ];
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      { threshold: 0.6 }
-    );
-
-    sections.forEach(({ id }) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
   const NavLinks = () => (
     <ul
       className="flex flex-col md:flex-row md:items-center gap-4 md:gap-6"
       role="list"
     >
-      {sections.map((s) => {
-        const isActive = activeSection === s.id;
-        return (
-          <li key={s.id}>
-            <a
-              href={`#${s.id}`}
-              onClick={() => setIsOpen(false)}
-              className={`text-sm md:text-base transition-colors ${
-                isActive
-                  ? "text-primary-red font-semibold"
-                  : "text-gray-700 hover:text-primary-red"
-              }`}
-              aria-current={isActive ? "page" : undefined}
-            >
-              {s.label}
-            </a>
-          </li>
-        );
-      })}
+      {sections.map((s) => (
+        <li key={s.id}>
+          <a
+            href={`#${s.id}`}
+            onClick={() => setIsOpen(false)}
+            className="text-sm md:text-base text-gray-700 hover:text-primary-red focus:text-primary-red transition-colors"
+          >
+            {s.label}
+          </a>
+        </li>
+      ))}
     </ul>
   );
 
   return (
-    <header className="w-full absolute z-10">
+    <header className="w-full sticky top-0 z-50 md:absolute md:top-auto md:z-10 bg-white/90 md:bg-transparent backdrop-blur-md">
       <nav
         className="max-w-[1440px] mx-auto flex justify-between items-center sm:px-16 px-6 py-4"
         aria-label="Primary"
