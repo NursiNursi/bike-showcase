@@ -33,7 +33,7 @@ const SearchBikeModel = ({ bikeModel, setBikeModel }: SearchBikeModelProps) => {
 
   return (
     <div className="search-manufacturer">
-      <Combobox value={bikeModel} onChange={setBikeModel}>
+      <Combobox value={bikeModel} onChange={(val) => setBikeModel(val ?? "")}>
         <div className="relative w-full">
           <ComboboxButton className="absolute top-[14px]">
             <Image

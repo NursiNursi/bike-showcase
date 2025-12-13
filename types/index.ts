@@ -13,7 +13,7 @@ export interface CustomButtonProps {
 }
 
 export interface SearchBikeModelProps {
-  bikeModel: string;
+  bikeModel: string | null;
   setBikeModel: (bikeModel: string) => void;
 }
 
