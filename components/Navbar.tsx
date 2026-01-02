@@ -83,13 +83,15 @@ const Navbar = () => {
           </svg>
         </button>
 
-        <CustomButton
-          title="Kontak"
-          btnType="button"
-          containerStyles="min-w-[130px]"
-          variant="secondary"
-          handleClick={handleClick}
-        />
+        <div className="hidden md:block">
+          <CustomButton
+            title="Kontak"
+            btnType="button"
+            containerStyles="min-w-[130px]"
+            variant="secondary"
+            handleClick={handleClick}
+          />
+        </div>
       </nav>
 
       {isOpen && (
