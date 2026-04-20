@@ -1,6 +1,7 @@
 export const allBikes = [
   {
     model: "Vario 125",
+    type: ["CBS", "CBS-ISS"],
     spec: {
       engineType: "4-Langkah, SOHC, eSP, Pendinginan Cairan",
       displacement: "124,8 cc",
@@ -42,6 +43,7 @@ export const allBikes = [
   },
   {
     model: "Vario 160",
+    type: ["CBS-ISS", "CBS-ISS-SP", "ABS"],
     spec: {
       engineType: "4 Langkah, 4-Valve, eSP+",
       displacement: "156,9 cc",
@@ -66,6 +68,7 @@ export const allBikes = [
   },
   {
     model: "BeAT",
+    type: ["CBS", "CBS-ISS-DELUXE", "CBS-ISS-DELUXE-SMARTKEY"],
     spec: {
       engineType: "	4 - Langkah, SOHC, eSP",
       displacement: "109,5 cc",
@@ -109,6 +112,7 @@ export const allBikes = [
   },
   {
     model: "Genio",
+    type: ["CBS", "CBS-WHITE", "CBS-TRICOLOR", "CBS-ISS"],
     spec: {
       engineType: "4 – Langkah, SOHC, eSP",
       displacement: "109,5 cc",
@@ -131,6 +135,7 @@ export const allBikes = [
   },
   {
     model: "Scoopy",
+    type: ["FASHION", "STYLISH PRESTIGE"],
     spec: {
       engineType: "4 - Langkah, SOHC, eSP",
       displacement: "109,5 cc",
@@ -157,6 +162,7 @@ export const allBikes = [
   },
   {
     model: "Stylo 160",
+    type: ["CBS", "ABS"],
     spec: {
       engineType: "	4 Langkah, 4 Katup, eSP+",
       displacement: "156,9 cc",
@@ -180,6 +186,7 @@ export const allBikes = [
   },
   {
     model: "PCX 160",
+    type: ["CBS", "ABS"],
     spec: {
       engineType: "4-Langkah, 4-Katup, eSP+",
       displacement: "156,9 cc",
@@ -206,6 +213,7 @@ export const allBikes = [
   },
   {
     model: "ADV 160",
+    type: ["CBS", "ABS"],
     spec: {
       engineType: "4-Langkah, 4-Katup, eSP+",
       displacement: "156,9 cc",
@@ -294,6 +302,7 @@ export const evBike = [
 export const sportBike = [
   {
     model: "CB150 Verza",
+    type: ["CASTWHEEL", "SW"],
     spec: {
       engineType: "4 langkah, SOHC, Satu Silinder",
       displacement: "149.15 cc",

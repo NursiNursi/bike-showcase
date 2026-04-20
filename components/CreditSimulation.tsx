@@ -10,6 +10,7 @@ const CreditSimulation = () => {
   const [selectedBike, setSelectedBike] = useState<any>(null);
   const [downPayment, setDownPayment] = useState("Rp. 1 Juta - Rp. 2,5 Juta");
   const [loanTerm, setLoanTerm] = useState("12");
+  const [bikeType, setBikeType] = useState("");
   const [showError, setShowError] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -21,14 +22,14 @@ const CreditSimulation = () => {
   // Filter bikes based on search term
   const filteredBikes = useMemo(() => {
     return allBikeModels.filter((bike) =>
-      bike.model.toLowerCase().includes(searchTerm.toLowerCase())
+      bike.model.toLowerCase().includes(searchTerm.toLowerCase()),
     );
   }, [allBikeModels, searchTerm]);
 
   // Check if searchTerm exactly matches a bike model
   useEffect(() => {
     const exactMatch = allBikeModels.find(
-      (bike) => bike.model.toLowerCase() === searchTerm.toLowerCase()
+      (bike) => bike.model.toLowerCase() === searchTerm.toLowerCase(),
     );
     if (!exactMatch) {
       setSelectedBike(null);
@@ -65,8 +66,10 @@ const CreditSimulation = () => {
       return;
     }
     setShowError(false);
-    const message = `Halo kak! Saya tertarik cicilan motor Honda dan ingin konsultasi.%0ABerikut detailnya:%0AModel Motor: ${selectedBike.model}%0AUang Muka: ${downPayment}%0ATenor: ${loanTerm} bulan`;
+    const bikeTypeLine = bikeType?.trim() ? `%0ATipe: ${bikeType}` : "";
+    const message = `Halo kak! Saya tertarik cicilan motor Honda dan ingin konsultasi.%0ABerikut detailnya:%0AModel Motor: ${selectedBike.model}${bikeTypeLine}%0AUang Muka: ${downPayment}%0ATenor: ${loanTerm} bulan`;
     window.open(`https://wa.me/628112340753?text=${message}`, "_blank");
+    setBikeType("");
   };
 
   return (
@@ -147,7 +150,10 @@ const CreditSimulation = () => {
                 </option>
                 <option value="Diatas Rp 5 Juta">Diatas Rp 5 Juta</option>
               </select>
-              <IoChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 pointer-events-none" size={16} />
+              <IoChevronDown
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 pointer-events-none"
+                size={16}
+              />
             </div>
           </div>
 
@@ -166,9 +172,35 @@ const CreditSimulation = () => {
                 <option value="36">36 Bulan</option>
                 <option value="48">48 Bulan</option>
               </select>
-              <IoChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 pointer-events-none" size={16} />
+              <IoChevronDown
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 pointer-events-none"
+                size={16}
+              />
             </div>
           </div>
+
+          {selectedBike?.type?.length > 0 && (
+            <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+              <label className="text-md font-medium text-gray-700 md:w-32 md:flex-shrink-0">
+                Type
+              </label>
+              <div className="flex-1 relative">
+                <select
+                  value={bikeType}
+                  onChange={(e) => setBikeType(e.target.value)}
+                  className="w-full appearance-none px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-red pr-10"
+                >
+                  {selectedBike?.type.map((type: string) => (
+                    <option key={type}>{type}</option>
+                  ))}
+                </select>
+                <IoChevronDown
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 pointer-events-none"
+                  size={16}
+                />
+              </div>
+            </div>
+          )}
 
           {selectedBike &&
             allBikeModels.some((bike) => bike.model === searchTerm) && (
