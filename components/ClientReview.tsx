@@ -1,13 +1,11 @@
 "use client";
 
-import React from "react";
-import ReviewCard from "./ReviewCard";
 import ReviewCarousel from "./ReviewCarousel";
 import { allReviews } from "@/constants/reviewData";
 
 const ClientReview = () => {
   return (
-    <div className="mt-12 padding-x padding-y max-width" id="client-review">
+    <div className="mt-12 padding-x padding-y max-width">
       <div className="w-full gap-5 py-4">
         <div className="home__text-container mb-8">
           <h1 className="text-4xl font-extrabold">Ulasan Pelanggan</h1>

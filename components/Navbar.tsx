@@ -2,22 +2,44 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { MouseEvent, useState } from "react";
+import { usePathname } from "next/navigation";
 import CustomButton from "./CustomButton";
-import { useState } from "react";
+
+const sections = [
+  { id: "catalogue", label: "Katalog" },
+  { id: "credit-simulation", label: "Simulasi Kredit" },
+  { id: "client-review", label: "Ulasan Pelanggan" },
+  { id: "articles", label: "Artikel" },
+] as const;
 
 const Navbar = () => {
+  const pathname = usePathname();
   const handleClick = () => {
     window.open("https://wa.me/628112340753", "_blank");
   };
 
   const [isOpen, setIsOpen] = useState(false);
 
-  const sections = [
-    { id: "catalogue", label: "Katalog" },
-    { id: "credit-simulation", label: "Simulasi Kredit" },
-    { id: "client-review", label: "Ulasan Pelanggan" },
-    { id: "articles", label: "Artikel" },
-  ];
+  const scrollToSection = (sectionId: string) => {
+    const target = document.getElementById(sectionId);
+    if (!target) return;
+
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.history.replaceState(null, "", `/#${sectionId}`);
+  };
+
+  const handleSectionClick = (
+    event: MouseEvent<HTMLAnchorElement>,
+    sectionId: string,
+  ) => {
+    setIsOpen(false);
+
+    if (pathname !== "/") return;
+
+    event.preventDefault();
+    scrollToSection(sectionId);
+  };
 
   const NavLinks = () => (
     <ul
@@ -26,13 +48,13 @@ const Navbar = () => {
     >
       {sections.map((s) => (
         <li key={s.id}>
-          <a
-            href={`#${s.id}`}
-            onClick={() => setIsOpen(false)}
+          <Link
+            href={{ pathname: "/", hash: s.id }}
+            onClick={(event) => handleSectionClick(event, s.id)}
             className="text-sm md:text-base text-gray-700 hover:text-primary-red focus:text-primary-red transition-colors"
           >
             {s.label}
-          </a>
+          </Link>
         </li>
       ))}
     </ul>
@@ -44,7 +66,7 @@ const Navbar = () => {
         className="max-w-[1440px] mx-auto flex justify-between items-center sm:px-16 px-6 py-4"
         aria-label="Primary"
       >
-        <Link href="" className="flex justify-center items-center">
+        <Link href="/" className="flex justify-center items-center">
           <Image
             src="/logo.svg"
             alt="Honda Logo"

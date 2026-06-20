@@ -33,6 +33,7 @@ const CreditSimulation = () => {
     );
     if (!exactMatch) {
       setSelectedBike(null);
+      setBikeType("");
     }
   }, [searchTerm, allBikeModels]);
 
@@ -41,6 +42,7 @@ const CreditSimulation = () => {
     setSearchTerm(bike.model);
     setShowDropdown(false);
     setShowError(false);
+    setBikeType(bike?.type ? bike.type[0] : "");
   };
 
   // Close dropdown when clicking outside
@@ -73,7 +75,7 @@ const CreditSimulation = () => {
   };
 
   return (
-    <div className="mt-12 padding-x padding-y max-width" id="credit-simulation">
+    <div className="mt-12 padding-x padding-y max-width">
       <div className="home__text-container">
         <h1 className="text-4xl font-extrabold">Simulasi Kredit</h1>
         <p className="text-gray-600 mt-4">

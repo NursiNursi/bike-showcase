@@ -80,7 +80,7 @@ const Catalogue = () => {
   }, [activeTab, currentBikes]);
 
   return (
-    <div className="mt-12 padding-x padding-y max-width" id="discover">
+    <div className="mt-12 padding-x padding-y max-width">
       <div className="flex flex-col lg:flex-row lg:justify-between gap-4 lg:gap-0">
         <div className="home__text-container text-center lg:text-left">
           <h1 className="text-4xl font-extrabold">Katalog Motor</h1>
