@@ -42,7 +42,7 @@ export const allBikes = [
     ],
   },
   {
-    model: "Vario 160",
+    model: "Vario Evo 160",
     type: ["CBS-ISS", "CBS-ISS-SP", "ABS"],
     spec: {
       engineType: "4 Langkah, 4-Valve, eSP+",
