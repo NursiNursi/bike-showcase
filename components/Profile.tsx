@@ -9,14 +9,14 @@ const Profile = () => {
       "Halo Mia, saya mau tanya info lebih lanjut soal promo motor Honda. Kontak kamu saya dapat dari website.";
     window.open(
       `https://wa.me/628112340753?text=${encodeURIComponent(message)}`,
-      "_blank"
+      "_blank",
     );
   };
 
   return (
     <div className="padding-x padding-y max-width">
       <div className="flex flex-col lg:flex-row justify-center items-center">
-        <div className="w-[80%] sm:w-[60%] lg:w-[40%] mt-12 lg:mt-48 h-[330px] relative lg:border-2 lg:border-primary-red rounded-xl flex-shrink-0">
+        <div className="w-[80%] sm:w-[60%] md:w-[47%] lg:w-[40%] mt-12 md:mt-32 lg:mt-48 h-[330px] relative lg:border-2 lg:border-primary-red rounded-xl flex-shrink-0">
           <Image
             src="/mia2.png"
             width={472}

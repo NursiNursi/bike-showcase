@@ -16,7 +16,7 @@ const Hero = () => {
 
   return (
     <div className="hero">
-      <div className="flex-1 pt-24 text-center lg:text-left padding-x">
+      <div className="flex-1 pt-12 md:pt-32 text-center lg:text-left padding-x">
         <h1 className="hero__title lg:leading-[78px] animate-fadeIn">
           Nikmati Kehandalan dan Gaya Bersama Honda
         </h1>
@@ -28,19 +28,16 @@ const Hero = () => {
           Desain Elegan, Teknologi Terdepan, Siap Temani Setiap Petualangan Anda
         </p>
 
-        <div className="flex gap-4">
-          <div
-            className="hidden lg:block animate-fadeIn"
-            style={{ animationDelay: "0.4s" }}
-          >
+        <div className="flex justify-center lg:justify-start gap-4">
+          <div className="animate-fadeIn" style={{ animationDelay: "0.4s" }}>
             <CustomButton
               title="Jelajahi Motor"
               containerStyles="mt-10"
-              handleClick={() => handleScroll("discover")}
+              handleClick={() => handleScroll("catalogue")}
             />
           </div>
           <div
-            className="animate-fadeIn w-full lg:w-auto flex justify-center lg:justify-start"
+            className="animate-fadeIn flex justify-center lg:justify-start"
             style={{ animationDelay: "0.4s" }}
           >
             <CustomButton
@@ -55,7 +52,7 @@ const Hero = () => {
       <div className="hero__image-container">
         <div className="hero__image animate-heroEntrance">
           <Image
-            src="/hero1.png"
+            src="/hero-image.webp"
             alt="hero"
             fill
             priority
