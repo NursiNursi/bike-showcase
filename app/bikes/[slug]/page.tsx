@@ -78,7 +78,7 @@ export default async function BikeDetailPage({ params }: PageProps) {
       <div className="flex flex-col lg:flex-row gap-8">
         {/* Left: Images */}
         <div className="lg:w-1/2">
-          <BikeDetailClient bike={bike} />
+          <BikeDetailClient key={bike.model} bike={bike} />
         </div>
 
         {/* Right: Details */}

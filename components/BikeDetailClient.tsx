@@ -2,21 +2,16 @@
 
 import Image from "next/image";
 import { BikeProps } from "@/types";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 interface Props {
   bike: BikeProps;
-  handleClick?: () => void;
 }
 
 export default function BikeDetailClient({ bike }: Props) {
   const [activeImage, setActiveImage] = useState<string>(
     bike.colorVariant?.[0] || bike.image || "/hero.png"
   );
-
-  useEffect(() => {
-    setActiveImage(bike.colorVariant?.[0] || bike.image || "/hero.png");
-  }, [bike.model]);
 
   return (
     <div>
@@ -25,7 +20,8 @@ export default function BikeDetailClient({ bike }: Props) {
           src={activeImage}
           alt={`Gambar ${bike.model}`}
           fill
-          className="object-contain"
+          className="object-contain animate-fade-in"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40vw"
           priority
         />
       </div>
@@ -33,15 +29,22 @@ export default function BikeDetailClient({ bike }: Props) {
       {bike.colorVariant && bike.colorVariant.length > 0 && (
         <div className="mt-6">
           <h2 className="text-xl font-bold">Pilihan Warna</h2>
-          <div className="flex gap-2 overflow-x-auto hide-scrollbar p-4">
+          <div 
+            className="flex gap-2 overflow-x-auto hide-scrollbar p-4"
+            role="group"
+            aria-label="Pilihan warna sepeda"
+          >
             {bike.colorVariant.map((src, idx) => (
               <button
                 key={`${src}-${idx}`}
-                className={`relative w-24 h-24 flex-shrink-0 rounded-md border ${
-                  activeImage === src ? "ring-2 ring-primary-red" : ""
+                className={`relative w-24 h-24 flex-shrink-0 rounded-md border transition-all ${
+                  activeImage === src 
+                    ? "ring-2 ring-primary-red border-transparent" 
+                    : "hover:border-gray-400 border-gray-200"
                 }`}
                 onClick={() => setActiveImage(src)}
-                aria-label={`Pilih warna ${idx + 1}`}
+                aria-label={`Pilih warna ke-${idx + 1}`}
+                aria-pressed={activeImage === src}
               >
                 <Image
                   src={src}
