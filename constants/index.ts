@@ -176,9 +176,11 @@ export const allBikes = [
     image: "/bikes/stylo160.png",
     colorVariant: [
       "/bikes/stylo/burgundy.png",
+      "/bikes/stylo/rviolet.webp",
       "/bikes/stylo/rbrown.png",
       "/bikes/stylo/rblue.png",
       "/bikes/stylo/rgreen.png",
+      "/bikes/stylo/ggrey.webp",
       "/bikes/stylo/gwhite.png",
       "/bikes/stylo/gbeige.png",
       "/bikes/stylo/gblack.png",
