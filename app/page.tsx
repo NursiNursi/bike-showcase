@@ -7,6 +7,7 @@ import Profile from "@/components/Profile";
 import CreditSimulation from "@/components/CreditSimulation";
 import ClientReview from "@/components/ClientReview";
 import Article from "@/components/Article";
+import AfterSalesService from "@/components/AfterSalesService";
 
 const scrollToHash = (hash: string) => {
   const sectionId = decodeURIComponent(hash.replace("#", ""));
@@ -74,10 +75,16 @@ export default function Home() {
       >
         <ClientReview />
       </section>
+      <section
+        id="after-sales"
+        className="scroll-mt-24"
+        aria-label="After Sales Service"
+      >
+        <AfterSalesService />
+      </section>
       <section id="articles" className="scroll-mt-24" aria-label="Articles">
         <Article />
       </section>
     </main>
   );
 }
-
