@@ -11,6 +11,7 @@ const sections = [
   { id: "credit-simulation", label: "Simulasi Kredit" },
   { id: "client-review", label: "Ulasan Pelanggan" },
   { id: "articles", label: "Artikel" },
+  { id: "after-sales", label: "After Sales" },
 ] as const;
 
 const Navbar = () => {
